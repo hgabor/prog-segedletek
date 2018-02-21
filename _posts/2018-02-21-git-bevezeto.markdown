@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Git bevezető"
-date:   2018-01-17 15:50:00 +0100
+date:   2018-02-21 10:00:00 +0100
 tags: 14evfolyam verziokezeles
 ---
 
@@ -94,13 +94,20 @@ A végeredményképp azt látjuk, hogy a commitok "elágaznak", majd újra "egyb
   * A következő pullnál feldoljuk a konfliktusokat, ha vannak
   * Push-olunk
 
-## Visual Studio UI
+## Tipikus UI-k
 
-Visual Studio-ban a verziókezelési műveleteket a "Team Explorer" panelen találhatjuk meg.
+Előfordulhat, hogy a különböző fejlesztőeszközök másképp csoportosítják, helyezik el a parancsokat,
+de a műveleteknek az elnevezése megegyezik - ha ezeket ismerjük, bármely GUI-n el tudunk igazodni.
+Itt két példát szeretnék bemutatni, de a többi fejlesztőkörnyezet, ill. külső verziókezelő kliens
+(pl. SourceTree, Github Desktop) is hasonlóan működik.
+
+### Visual Studio
+
+Visual Studio-ban a verziókezelési műveleteket a *Team Explorer* panelen találhatjuk meg.
 
 ![Repók közötti műveletek](/assets/img/git_vs_home.png)
 
-A "Manage Connections" ikonra kattintva (vagy a felső menüsávban a "Team/Manage Connection"-re)
+A *Manage Connections* ikonra kattintva (vagy a felső menüsávban a *Team/Manage Connection*-re)
 előjön az alábbi panel:
 
 ![Repók közötti műveletek](/assets/img/git_vs_connect.png)
@@ -126,9 +133,23 @@ akkor azt az új projekt létrehozásakor kell kiválasztani:
 
 ![Repók közötti műveletek](/assets/img/git_vs_init.png)
 
-Ha még nem használtuk a funkciót, a jelölőnégyzet felirata első alkalommal valószínűleg "Add to Source Control" lesz,
+Ha még nem használtuk a funkciót, a jelölőnégyzet felirata első alkalommal valószínűleg *Add to Source Control* lesz,
 ekkor ki kell választani, hogy git-tel szeretnénk dolgozni Team Foundation helyett.
 
-## NetBeans UI
+### NetBeans
 
-TODO
+Netbeans-ben a verziókezelési műveleteket két helyen érhetjük el:
+
+* A menüsorban a *Team* menü alatt
+* A projektre jobb klikkel kattintva, a *git* menüpont alatt (ajánlott)
+
+![Repók közötti műveletek](/assets/img/git_netbeans_home.png)
+
+Itt közvetlen elérhetők a leggyakoribb műveletek (commit, checkout, history).
+A távoli repóval kapcsolatos műveletek (fetch, push, pull) a *Remote* almenüben találhatók
+
+A klónozás művelet is itt jelenik meg. Ha épp nincs nyitott projekt, akkor a Team menüből választhatjuk ki.
+
+Ha az új projektünkhöz helyi repót szeretnénk létrehozni, klónozás nélkül,
+akkor először hozzuk létre a projektet a szokásos módon, majd válasszuk ki a jobb klikk menüből
+a *Versioning/Initialize Git Repository...* opciót.
