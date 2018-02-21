@@ -20,7 +20,8 @@ A git alapvetően konzolról vezérelt eszköz, de szinte minden grafikus fejles
 Van, amelyik beépítetten, van amelyikhez szükséges a konzolos változat telepítése.
 
 Ebben a leírásban elsősorban az általános fogalmakra, és a GUI-s felületekre koncentrálok.
-A git teljes funkciókészletével sokkal többet is lehet lehet kezdeni (pl. több párhuzamos fejlesztési ág kezelése, repó történelmének módosítása, script-ek automatikus futtatása stb.), ezekbe akkor érdemes beletanulni, ha már az alapvető munkamenetet biztonsággal kezeljük.
+A git teljes funkciókészletével sokkal többet is lehet lehet kezdeni (pl. több párhuzamos fejlesztési ág kezelése, repó történelmének módosítása, script-ek automatikus futtatása stb.),
+ezekbe akkor érdemes beletanulni, ha már az alapvető munkamenetet biztonsággal kezeljük.
 
 ## Alapfogalmak
 
@@ -74,7 +75,24 @@ A végeredményképp azt látjuk, hogy a commitok "elágaznak", majd újra "egyb
 
 ## Tipikus munkamenet
 
-TODO
+* Első alkalommal:
+  * Ha van rávoli repó:
+    * Klónozzuk
+  * Ha nincs:
+    * Létrehozunk egy távoli, teljesen üres repót
+    * A saját projektünket verziókezelve hozzuk létre
+    * A generált projektfájlokat commit-oljuk, a commit üzenet általában "Initial commit"
+    * Push-oljuk, beállítjuk a távoli repó URL-jét
+* Minden további alkalommal:
+  * A munka megkezdésekor pull-olunk, hogy a legfrissebb változattal dolgozzunk
+  * Amikor egy egységnyi munkát elvégeztünk, akkor commit-olunk
+  * Pull-olunk, hogy időközben történt-e változás
+    * Ha emiatt konfliktus keletkezik, akkor azt feloldjuk, a feloldást commit-oljuk
+  * Push-olunk
+* Ha internethozzáférés nélkül kell dolgozni, akkor csak a pull/push műveletek lesznek elérhetetlenek
+  * Commit-olni ugyanúgy tudunk, nem kell amiatt aggódni, hogy a változások elvesznek
+  * A következő pullnál feldoljuk a konfliktusokat, ha vannak
+  * Push-olunk
 
 ## Visual Studio UI
 
