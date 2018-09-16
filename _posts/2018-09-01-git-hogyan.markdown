@@ -15,9 +15,9 @@ Az óra célja, hogy a diákok biztosan tudják kezelni a git verziókezelő ren
 
 Ha ezekkel az ismeretekkel rendelkeznek, az nem csak azért fontos, mert előnybe helyezi őket a többi frissen végzett diákkal szemben, hanem a saját munkákat is megkönnyítjük vele: a házi feladatok, záródolgozatok begyűjtésekor nem kell zip fájlokkal szórakozni, harcolni a levelezőrendszer fájlméret korlátaival és a becsomagolt .exe fájlokkal, valamint ha a diák nem küld levelet / fenn akad a spam szűrőn, de a feladat fent van a github oldalán, akkor is lesz értékelhető munkája (és nem tud kifogással élni, hogy "Én pedig elküldtem"). A saját tapasztalatom az volt, hogy kis gyakorlással a fentieket minden 14-es diák képes volt készségszinten elsajátítani.
 
-## Tanári alapismeretek
-
 A választásom azért a git-re esett, mert az eddigi tapasztalatom alapján mind céges, mind hobbi környezetben a leggyakrabban használt, és az elosztott megvalósításnak köszönhetően akár internetelérés nélkül is használható. Mind a NetBeans, mind a Visual Studio beépített támogatást nyújt hozzá. Nekem személyesen kevesebb félelmem van azzal kapcsolatban, hogy elveszne a munkám, mint amikor még SVN-t használtam.
+
+## Tanári alapismeretek
 
 Első körben tisztában kell lennünk a verziókezelő rendszer működésével. Amit érdemes átolvasni:
 
