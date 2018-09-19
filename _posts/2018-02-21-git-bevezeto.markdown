@@ -20,7 +20,7 @@ A git alapvetően konzolról vezérelt eszköz, de szinte minden grafikus fejles
 Van, amelyik beépítetten, van amelyikhez szükséges a konzolos változat telepítése.
 
 Ebben a leírásban elsősorban az általános fogalmakra, és a GUI-s felületekre koncentrálok.
-A git teljes funkciókészletével sokkal többet is lehet lehet kezdeni (pl. több párhuzamos fejlesztési ág kezelése, repó történelmének módosítása, script-ek automatikus futtatása stb.),
+A git teljes funkciókészletével sokkal többet is lehet kezdeni (pl. több párhuzamos fejlesztési ág kezelése, repó történelmének módosítása, script-ek automatikus futtatása stb.),
 ezekbe akkor érdemes beletanulni, ha már az alapvető munkamenetet biztonsággal kezeljük.
 
 ## Alapfogalmak
