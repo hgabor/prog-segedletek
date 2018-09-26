@@ -1,0 +1,7 @@
+pre > code:before {
+    content: "Nyelv: " attr(data-lang);
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+    color: green;
+}

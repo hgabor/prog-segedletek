@@ -45,6 +45,26 @@
 
 </footer>
 
+<script>
+
+  (function(){
+    let translate = {
+      'csharp': 'C#',
+      'java': 'Java',
+      'php': 'PHP',
+      'javascript': 'JavaScript',
+    };
+
+    let a = document.getElementsByTagName("code");
+    for (let i = 0; i < a.length; i++) {
+      let elem = a[i];
+      elem.setAttribute("data-lang", translate[elem.getAttribute("class")]);
+    }
+  })();
+</script>
+
 <link rel="stylesheet" href="/assets/highlight/styles/default.css">
 <script src="/assets/highlight/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
+<link rel="stylesheet" href="/assets/css/style.css">
+

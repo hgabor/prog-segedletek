@@ -74,7 +74,7 @@ $obj->data = 5; // A tagváltozó elé nem kell még egyszer dollárjel!
 
 <pre><code class="csharp">class Person
 {
-    strint name;
+    string name;
     DateTime birthDate;
 
     int CalculateAge()
@@ -84,7 +84,7 @@ $obj->data = 5; // A tagváltozó elé nem kell még egyszer dollárjel!
 }
 </code></pre>
 
-A hagyományos függvényekhez képest a metódusok elérhetik az aktuális objektumok tagváltozóit és más metódusait. Ehhez a speciálisan elnevezett *this* (PHP-ban $this) változót használhatjuk.
+A hagyományos függvényekhez képest a metódusok elérhetik az aktuális objektumok tagváltozóit és más metódusait. Ehhez a speciálisan elnevezett **this** (PHP-ban **$this**) változót használhatjuk.
 
 A this kulcsszó Java-ban és C#-ban elhagyható, ha egyértelmű, hogy a tagváltozóra hivatkozunk:
 
@@ -145,8 +145,6 @@ A két legfontosabb láthatóság:
 
 ## Példák osztály definiálására
 
-### C\#
-
 <pre><code class="csharp">class Animal
 {
     string owner;
@@ -169,8 +167,6 @@ A két legfontosabb láthatóság:
 
 C#-ban az alapértelmezett láthatóság a private, ezért nem szokás kiírni.
 
-### Java
-
 <pre><code class="java">class Animal {
     private String owner;
     private int legCount;
@@ -189,8 +185,6 @@ C#-ban az alapértelmezett láthatóság a private, ezért nem szokás kiírni.
 </code></pre>
 
 Java-ban a default érték teljesen mást jelent, ezért a private-et mindig kiírjuk.
-
-### PHP
 
 <pre><code class="php">class Animal
 {
@@ -285,7 +279,7 @@ bird.setLegCount(bird.getLegCount() - 1);
 
 A kód aránylag nem szép, de Java-ban és PHP-ban ez az egyetlen lehetőségünk.
 
-C# és JavaScript azonban bevezetett egy új fogalmat, a **Property**-t, ami lehetővé teszi, hogy az osztályon kívülről úgy látszódjon egy függvény, mintha adattag lenne.
+C# és JavaScript azonban bevezetett egy új fogalmat, a **property**-t, ami lehetővé teszi, hogy az osztályon kívülről úgy látszódjon egy függvény, mintha adattag lenne.
 
 C# példa:
 
@@ -294,6 +288,7 @@ C# példa:
     private string owner;
     private int legCount;
 
+    // Nincs zárójel!
     public int LegCount {
         get
         {
@@ -316,7 +311,7 @@ C# példa:
 }
 </code></pre>
 
-Nem kötetelező mindkettőt definiálni. Ha csak a get-et adjuk meg, akkor a property csak olvasható lesz.
+Nem kötetelező mindkettőt definiálni. Ha csak a get-et adjuk meg, akkor a property csak olvasható lesz, ha csak set-et, akkor csak írható.
 
 Használat:
 
@@ -335,6 +330,7 @@ JavaScript példa:
         this._legCount = 0;
     }
 
+    // Mintha függvény lenne, csak a get/set kulcsszót elé írjuk
     get legCount() {
         return this._legCount;
     }
