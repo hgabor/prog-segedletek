@@ -52,7 +52,7 @@ Elnevezések, szakszavak:
 
 * Animal - típus: **osztály (class)**
 * new Animal() - érték: **objektum (object), példány (instance)**
-* Az összetartozó adatok (name, hungerlevel): **tag (member), objektum változói**
+* Az összetartozó adatok (name, hungerLevel): **tag (member), objektum változói**
 * Az elvégezhető műveletek (Eat, GetHungerLevel): **metódus (method), tagfüggvény (member function)**
 * Új érték, objektum létrehozása: **példányosítás (instantiation, to instantiate)**, vagy csak simán **létrehozás (create)**
 
@@ -135,9 +135,9 @@ A fenti példában van egy potenciális hibaforrás. A kód nem akadályozza meg
 a.legCount = -3;
 </code></pre>
 
-A -3 érték jöhet felhasználótól, vagy hibás programkódból - mindenesetre az biztos, hogy valahogy szeretnénk jeletni a fejlesztőnek, hogy hiba történt.
+A -3 érték jöhet felhasználótól, vagy hibás programkódból - mindenesetre az biztos, hogy valahogy szeretnénk megakadályozni a hiba létrejöttét.
 
-Sok programnyelvben meg lehet jelölni a változókat, függvényeket, konstruktorokat, hogy csak bizonyos környezetben legyen elérhetők, meghívhatók. Így az osztályt használó fejlesztőt meg akadályozni abban, hogy véletlenül kihagyja a hibaellenőrzés.
+Sok programnyelvben meg lehet jelölni a változókat, függvényeket, konstruktorokat, hogy csak bizonyos környezetben legyen elérhetők, meghívhatók. Így az osztályt használó fejlesztőt meg lehet akadályozni abban, hogy véletlenül kihagyja a hibaellenőrzést.
 
 A két legfontosabb láthatóság:
 * **public**: publikus, bárhonnan elérhető
@@ -158,7 +158,7 @@ A két legfontosabb láthatóság:
         this.legCount = legCount;
     }
 
-    public SetLegCount(int legCount)
+    public void SetLegCount(int legCount)
     {
         if (legCount >= 0) {
             this.legCount = legCount;
@@ -180,7 +180,7 @@ C#-ban az alapértelmezett láthatóság a private, ezért nem szokás kiírni.
         this.legCount = legCount;
     }
 
-    public setLegCount(int legCount) {
+    public void setLegCount(int legCount) {
         if (legCount >= 0) {
             this.legCount = legCount;
         }
@@ -253,3 +253,111 @@ A felső harmad az osztály neve. A középső rész tartalmazza az adattagokat,
 
 A konstruktort tipikusan az osztály nevével jelöljük, a privát adattagokat - jellel, a publikusakat + jellel.
 
+## Property-k, getter, setter
+
+Gyakran előfordul, hogy a tagváltozókat márpedig el szeretnénk érni, de a hibaellenőrzést meg szeretnénk tartani.
+
+Java és PHP nyelven ezt segédfüggvények segítségével oldhatjuk meg.
+
+Java példa:
+
+<pre><code class="java">class Animal {
+    private String owner;
+    private int legCount;
+
+    public int getLegCount(int legCount) {
+        return legCount;
+    }
+
+    public void setLegCount(int legCount) {
+        if (legCount >= 0) {
+            this.legCount = legCount;
+        }
+    }
+}
+</code></pre>
+
+Ha módosítani szeretnénk, pl. 1-gyel csökkenteni a tagváltozót, akkor azt így tehetjük meg.
+
+<pre><code class="java">Animal bird = new Animal();
+bird.setLegCount(bird.getLegCount() - 1);
+</code></pre>
+
+A kód aránylag nem szép, de Java-ban és PHP-ban ez az egyetlen lehetőségünk.
+
+C# és JavaScript azonban bevezetett egy új fogalmat, a **Property**-t, ami lehetővé teszi, hogy az osztályon kívülről úgy látszódjon egy függvény, mintha adattag lenne.
+
+C# példa:
+
+<pre><code class="csharp">class Animal
+{
+    private string owner;
+    private int legCount;
+
+    public int LegCount {
+        get
+        {
+            return legCount;
+        }
+        set {
+            // A value speciális érték tartalmazza az új értéket.
+            if (value >= 0) {
+                this.legCount = value;
+            }
+        }
+    }
+
+    public string Owner {
+        get
+        {
+            return owner;
+        }
+    }
+}
+</code></pre>
+
+Nem kötetelező mindkettőt definiálni. Ha csak a get-et adjuk meg, akkor a property csak olvasható lesz.
+
+Használat:
+
+<pre><code class="csharp">Animal centipede = new Animal();
+centipede.LegCount = 100;
+centipede.LegCount--;
+Console.WriteLine(centipede.Owner);
+//centipede.Owner = "John"; hibás, mert nincs setter
+</code></pre>
+
+JavaScript példa:
+
+<pre><code class="javascript">class Animal {
+    constructor() {
+        this._owner = "Default owner";
+        this._legCount = 0;
+    }
+
+    get legCount() {
+        return this._legCount;
+    }
+
+    set legCount(legCount) {
+        if (legCount >= 0) {
+            this._legCount = legCount;
+        }
+    }
+
+    get owner() {
+        return this._owner;
+    }
+}
+
+let centipede = new Animal();
+centipede.legCount = 100;
+centipede.legCount--;
+console.log(centipede.owner);
+</code></pre>
+
+Mindkét nyelven, az Owner/owner és a LegCount/legCount használat közben úgy tűnik, mintha változó lenne, mégis függvényeket hív meg a háttérben. Ezáltal olvashatóbb kódot tudunk készíteni:
+
+`bird.setLegCount(bird.getLegCount() - 1)` ugyanazt jelenti, mint a `bird.LegCount--`
+
+és mégsem vesztjük el a hibaellenőrzést, a legCount értéke sosem lesz negatív.
