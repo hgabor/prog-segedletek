@@ -143,6 +143,30 @@ A két legfontosabb láthatóság:
 * **public**: publikus, bárhonnan elérhető
 * **private**: privát, csak az osztályon belül érhető el
 
+<pre><code class="csharp">class Animal
+{
+    private string name;
+
+    public void WriteName()
+    {
+        // A "name" az osztályon belül elérhető:
+        Console.WriteLine(this.name);
+    }
+}
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+        Animal a = new Animal();
+        // A "name" az osztályon kívül nem érhető el, az alábbi sor hibás:
+        Console.WriteLine(a.name);
+        // A metódus viszont publikus, azt meg lehet hívni:
+        a.WriteName();
+    }
+}
+</code></pre>
+
 ## Példák osztály definiálására
 
 <pre><code class="csharp">class Animal
@@ -285,8 +309,8 @@ C# példa:
 
 <pre><code class="csharp">class Animal
 {
-    private string owner;
-    private int legCount;
+    string owner;
+    int legCount;
 
     // Nincs zárójel!
     public int LegCount {
@@ -319,7 +343,8 @@ Használat:
 centipede.LegCount = 100;
 centipede.LegCount--;
 Console.WriteLine(centipede.Owner);
-//centipede.Owner = "John"; hibás, mert nincs setter
+// Ez a sor hibás, mert nincs setter:
+centipede.Owner = "John";
 </code></pre>
 
 JavaScript példa:
