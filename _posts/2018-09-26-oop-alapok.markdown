@@ -382,3 +382,47 @@ Mindkét nyelven, az Owner/owner és a LegCount/legCount használat közben úgy
 `bird.setLegCount(bird.getLegCount() - 1)` ugyanazt jelenti, mint a `bird.LegCount--`
 
 és mégsem vesztjük el a hibaellenőrzést, a legCount értéke sosem lesz negatív.
+
+## Mi ellen véd a private?
+
+Véletlen programhibák, elgépelések, számítási hibák ellen.
+
+### Rossz szándékú fejlesztő ellen nem véd
+
+Ha szeretnénk, könnyedén ki lehet játszani a private által nyújtott védelmet:
+
+<pre><code class="java">import java.lang.reflect.Field;
+
+class TestClass {
+    // Privát, az osztály nem módosítja, így örökké 2 lesz, ugye?
+    private int alwaysPositive = 2;
+    
+    public void print() {
+        System.out.println(this.alwaysPositive);
+    }
+}
+
+public class CircumventVisibility {
+    public static void main(String[] args) throws NoSuchFieldException,
+            IllegalArgumentException, IllegalAccessException {
+        TestClass obj = new TestClass();
+        obj.print(); // 2-t ír ki
+        // Az alábbi sor hibás, mert az alwaysPositive változó privát
+        // obj.alwaysPositive = -3;
+
+        // Turkáljunk egy kicsit a Java belső működésébe
+        Field declaredField = TestClass.class
+            .getDeclaredField("alwaysPositive");
+        declaredField.setAccessible(true);
+        declaredField.setInt(obj, -3);
+        obj.print(); // -3 -at ír ki. Upsz...
+    }
+}
+</code></pre>
+
+Viszont ilyen kódot véletlenül nem fogunk írni. Ha mégis használjuk, magunkkal szúrunk ki.
+
+### A gép előtt ülő "hacker"-től nem véd
+
+Ha rendszergazdák vagyunk, akkor a saját gépen amúgy is van hozzáférésünk mindenhez, csak egy kis energia kell hozzá.
+Az .exe / .jar stb. fájlokból ki lehet olvasni az összes string-et, adatot, illetve a megfelelő eszközökkel a memóriából is.
