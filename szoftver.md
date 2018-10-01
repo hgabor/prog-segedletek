@@ -12,7 +12,7 @@ permalink: /szoftver/
   * [Visual Studio 2017 Community](https://visualstudio.microsoft.com/downloads/)
 * Java:
   * Java Development Kit (ez tartalmazza a fordítót, ezért kötelező):
-      * [Java JDK 8](https://visualstudio.microsoft.com/downloads/) - iskolai gépeken használt, Netbeans 8 ennél újabbal nem működik
+      * [Java JDK 8](https://www.oracle.com/technetwork/java/javase/overview/index.html) - iskolai gépeken használt, Netbeans 8 ennél újabbal nem működik
       * VAGY: [OpenJDK 11](http://jdk.java.net/11/) - újabb, de az iskolai környezettel nem garantált a kompatibilitás
   * [Netbeans](https://netbeans.org/)
     * 8.2 - Csak JDK 8-cal működik
