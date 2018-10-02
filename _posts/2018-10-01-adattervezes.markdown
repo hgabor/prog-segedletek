@@ -119,4 +119,71 @@ Vizuálisan:
 
 Ez az egyik fő ok, hogy a kezdeti tervezéshez egy egyszerűbb ábrázolási módot használunk - a kötelező, de nyilvánvaló részletek ne lassítsanak, és terheljenek minket, amikor még nem fontosak.
 
+### Osztályok
 
+Csak az ER-diagram vagy az adatbázis nem elég ahhoz, hogy a teljes osztályt elkészítsük. Hiányzik néhány nagyon fontos információ - többek közt azt, hogy az osztálynak mi lesz a feladata, milyen műveleteket kell végrehajtania, mit kell kiszámolnia, a kapcsolatok iránya...
+
+De egy félkész terv is jobb, mintha egyáltalán nincs terv.
+
+Hasonlóan az adatbázishoz, itt is lesz pár irányelv, ami kiindulási alapot ad:
+
+* Az entitásoknak az osztályok felelnek meg
+* Az attribútumoknak a tagváltozók
+* 1:N kapcsolatoknak:
+  * A kapcsolat egyik oldalán egy tömb/lista
+  * A kapcsolat másik oldalán egy egyedülálló tagváltozó
+* N:M kapcsolatokat többféleképp lehet modellezni
+  * Ha szükség van a kapcsolótáblák adataira, akkor a kapcsolótáblának meglfeleltetünk egy új osztályt, és visszavezettük a problémát két 1:N-es kapcsolatra
+  * Ha nincs, akkor felvehetünk egy-egy listát a két osztályban, és a kapcsolótábla meg sem jelenik az alkalmazásban.
+
+#### Ha szükség van az "idő"-re
+
+<pre><code class="csharp">class Jarat {
+    string jaratszam;
+    int kapacitas;
+    // Egy járat több állomást is érint:
+    List&lt;Erinti> erinti;
+}
+
+class Allomas {
+    string nev;
+    bool jegypenztar;
+    // Egy állomást több járat is érint:
+    List&lt;Erinti> erinti;
+}
+
+class Erinti {
+    // Egy "érintés" egy-egy járatot és állomást tartalmaz:
+    Jarat jarat;
+    Allomas allomas;
+    DateTime ido;
+}
+
+// Felhasználás (generált getterek segítségével):
+Console.WriteLine(jarat.Erinti[5].Ido);
+Console.WriteLine(jarat.Erinti[5].Allomas.Nev);
+</code></pre>
+
+#### Ha az "idő"-re nincs szükség
+
+<pre><code class="csharp">class Jarat {
+    string jaratszam;
+    int kapacitas;
+    // Egy járat több állomást is érint:
+    List&lt;Allomas> allomasok;
+}
+
+class Allomas {
+    string nev;
+    bool jegypenztar;
+    // Egy állomást több járat is érint:
+    List&lt;Jarat> jaratok;
+}
+
+// Felhasználás (generált getterek segítségével):
+Console.WriteLine(jarat.Allomasok[5].Nev);
+</code></pre>
+
+Az "int id" adatbázismezőket is célszerű lehet még felvenni az osztályokba, amennyiben az osztályok adatai az adatbázisból származnak, és módosítás után oda kerülnek visszaírásra.
+
+Az osztályok tervezése természetesen itt még nem ér véget, de egy erős támpontot ad a továbbiakhoz, a metódusok megtervezéséhez.
