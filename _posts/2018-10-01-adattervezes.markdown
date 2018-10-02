@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Adattervezés"
-date:   2018-09-26 10:00:00 +0100
+date:   2018-10-01 10:00:00 +0100
 tags: 14evfolyam oop adatbazis programozas
 ---
 
@@ -30,9 +30,9 @@ Első lépésnek defináljuk az entitásokat és a tulajdonságokat:
 
 * Mivel több különböző járat szerepelhet a programban, ezért valószínűleg a *járat* egy entitás lesz.
   * A járat azonosítására egy *járatszám*-ot használhatunk
-  * Extra, hasznos információként meg eltárolhatjuk a kapacitást is (hány utas tud szállítani)
+  * Extra, hasznos információként meg eltárolhatjuk a kapacitást is (hány utast tud szállítani)
 * Állomásból is lehet több, ezért az *állomás* is entitás lesz
-  * Az állomásnak van *neve*, ami idálisan egyedi
+  * Az állomásnak van *neve*, ami ideálisan egyedi
   * Eltárolhatjuk még, hogy az állomáson lehet-e jegyet vásárolni
 * A két entitás összekapcsolódik, amit *érinti*-nek nevezhetünk el
   * Kapcsolatnak is adhatunk tulajdonságot, ebben az esetben az időpontot
@@ -57,11 +57,11 @@ A tervezés sokmindent leírhatunk, ami egy kisvasút szempontjából releváns:
 * A járaton éppen aktuálisan utazó utasok számát (amit valós időben akár lehet mérni is)
 * ...
 
-Fontos mindig észben tartani, hogy a probléma megoldásához mi szükséges, és mi nem, hogy ne tervezzünk olyan rendszert, ami potenciálisan megold minden jövőbeli problémát - amivel aztán sosem leszünk kész, és akár az ügyfél büdzséjén is túlmehet.
+Fontos mindig észben tartani, hogy a probléma megoldásához mi szükséges, és mi nem, hogy ne tervezzünk olyan rendszert, ami potenciálisan megold minden jövőbeli problémát - amivel aztán sosem leszünk kész, és akár az ügyfél határidején, büdzséjén is túlmehet.
 
 > Hofstadter törvénye: Minden hosszabb időt vesz igénybe, mint várnád, még akkor is, ha figyelembe veszed Hofstadter törvényét.
 >
-> – Douglas Hofstadter: Gödel, Escher, Bach: Egybefont gondolatok birodalma.
+> – Douglas Hofstadter: Gödel, Escher, Bach: Egybefont gondolatok birodalma
 
 A továbbiakban csak az első ábrán lévő elemeket fogjuk használni.
 
@@ -117,7 +117,7 @@ Vizuálisan:
 * Idegen kulcsok
 * Adattípusok, egyéb megkötések
 
-Ez az egyik fő ok, hogy a kezdeti tervezéshez egy egyszerűbb ábrázolási módot használunk - a kötelező, de nyilvánvaló részletek ne lassítsanak, és terheljenek minket, amikor még nem fontosak.
+Ez az egyik fő ok, hogy a kezdeti tervezéshez egy egyszerűbb ábrázolási módot használunk - a kötelező, de nyilvánvaló részletek ne lassítsanak, és ne terheljenek minket, amikor még nem fontosak.
 
 ### Osztályok
 
@@ -132,7 +132,7 @@ Hasonlóan az adatbázishoz, itt is lesz pár irányelv, ami kiindulási alapot 
 * 1:N kapcsolatoknak:
   * A kapcsolat egyik oldalán egy tömb/lista
   * A kapcsolat másik oldalán egy egyedülálló tagváltozó
-* N:M kapcsolatokat többféleképp lehet modellezni
+* N:M kapcsolatokat többféleképp lehet modellezni:
   * Ha szükség van a kapcsolótáblák adataira, akkor a kapcsolótáblának meglfeleltetünk egy új osztályt, és visszavezettük a problémát két 1:N-es kapcsolatra
   * Ha nincs, akkor felvehetünk egy-egy listát a két osztályban, és a kapcsolótábla meg sem jelenik az alkalmazásban.
 
