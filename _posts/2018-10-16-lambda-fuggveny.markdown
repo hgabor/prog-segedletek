@@ -57,7 +57,7 @@ A teljes kód pedig:
         this.Controls.Add(btn);
         btn.Click += (sender, e) => {
             MessageBox.Show("Kattintottal");
-        }
+        };
     }
 }
 </code></pre>
