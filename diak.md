@@ -15,4 +15,4 @@ permalink: /diak/
   * [Adattervezés]({% post_url 2018-10-01-adattervezes %})
   * Osztályok tervezése
 * Kiegészítő témakörök
-  * [Lambda függvények]({% post_url 2018-09-26-oop-alapok %})
+  * [Lambda függvények]({% post_url 2018-10-16-lambda-fuggveny %})
