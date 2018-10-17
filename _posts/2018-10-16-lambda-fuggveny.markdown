@@ -8,7 +8,7 @@ tags: 14evfolyam programozas
 Függényeket általában akkor írunk, ha egy programkódot, kódrészletet többször, akár különböző paraméterekkel szeretnénk végrehajtani.
 Akkor is hasznos, ha a kódunkat kisebb, logikai részekre szeretnénk bontani.
 
-Van azonban egy fontos haszna még: a keretrendszer által generált különféle események (pl. egy gomra kattintás) kezelésére.
+Van azonban egy fontos haszna még: a keretrendszer által generált különféle események (pl. egy gombra kattintás) kezelésére.
 Ebben az esetben általában csak egy helyen használnánk a függényt: az eseményre feliratkozáskor. Pl.:
 
 <pre><code class="csharp">public class Form1: Form
@@ -62,7 +62,7 @@ A teljes kód pedig:
 }
 </code></pre>
 
-Ha nincs paraméter, akkor üres zárójeleket írunk, és megadhatunk visszatérési értéket is:
+Ha nincs paraméter, akkor üres zárójeleket írunk. Megadhatunk visszatérési értéket is:
 
 <pre><code class="csharp">() => {
     Console.WriteLine("Esemeny");
@@ -70,7 +70,7 @@ Ha nincs paraméter, akkor üres zárójeleket írunk, és megadhatunk visszaté
 }
 </code></pre>
 
-## Eseménykezelés egyéb programozási nyelveken
+## Más programozási nyelveken
 
 ### JavaScript
 
