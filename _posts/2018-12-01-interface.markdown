@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Interfészek"
-date:   2018-10-16 10:00:00 +0100
+date:   2018-12-01 10:00:00 +0100
 tags: 14evfolyam oop programozas
 ---
 

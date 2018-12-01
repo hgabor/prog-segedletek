@@ -1,0 +1,200 @@
+---
+layout: post
+title:  "Hash függvény, hash tábla"
+date:   2018-12-01 11:00:00 +0100
+tags: 14evfolyam adatszerkezetek
+---
+
+A hash függvény egy olyan függvény, amely tetszőleges méretű bemenetet képez le egy adott, fix méretű kimenetre.
+
+Hash függvény pl:
+
+* f(Személy) = Személy születésnapja (1-365 közötti szám)
+* f(Szám) = Az adott szám utolsó számjegye (0-9 közötti egész)
+
+A hash függvényeket több különböző célra is fel lehet használni, a választott céltól függ, hogy melyik hash függvény lesz nekünk épp jó.
+
+Hash függvény egyirányú, hiszen pl. az ember születésnapjából nem derül ki egyértelműen, kiről van szó.
+
+## Átviteli hibaellenőrzés
+
+Lemezek között, hálózaton stb. átvitel közben ritkán, de előfordulhat, hogy megsérül az adat, a cél eszközre más kerül, mint amit szeretnénk. Egy jól megválasztott hash függvénnyel nem kell 2-3x átvinnünk az adatot, hogy biztosak legyünk a sikerben. Egy ilyen hash függvény egymáshoz közel álló bemenethez is teljesen különböző kimenetet ad. Néhány példa:
+
+### Paritás
+
+Bemenet: tetszőleges bináris adat
+
+Kimenet: 1 bit: 0 ha az 1-es bites száma páros, 1 ha páratlan
+
+Pl.:
+
+**Be: 00010110**
+
+**Ki: 1 (mert 3 db 1-es szerepel)**
+
+Az adat, amit továbbítunk, az a "00010110 1" lesz. A fogadó fél szintén elvégzi a paritás vizsgálatot, és összehasonlítja, hogy a legutolsó, ún. paritásbit stimmel-e. Ha nem, akkor biztosan hiba történt.
+
+Akár hardveresen is nagyon egyszerű implementálni, és ha egy bitnyi tévedés történik, azonnal észre lehet venni.
+
+### CRC32 (cyclic redundancy check)
+
+Bemenet: tetszőleges bináris adat
+
+Kimenet: 32 bites (4 bájtos) szám
+
+Pl.:
+
+**Be: Hello**
+
+**Ki: 2880899316**
+
+Ha egy betűt is elírunk, akkor a kimenet teljesen megváltozik:
+
+* Helo - 2822868267
+* Helló - 1330752473
+* hello - 3287646509
+
+A CRC32 algoritmus [beépített része a hálózati protokolloknak](https://en.wikipedia.org/wiki/Ethernet_frame#Frame_check_sequence).
+
+## Titkosítás
+
+Ha a hash kódból nem lehet könnyen visszfejteni, hogy milyen adatot hash-eltünk előtte, sem egy másik adatot generálni, ami ugyanarra a hash kódra érkezik, akkor a függvény alkalmas lehet jelszavak egyirányú titkosítására.
+
+Pl. sha512(tesztjelszo) =  
+8cbcc9f1d40c07bc765d9443f776e0373b59ca3d260b7c13dd883e930a883ee9
+a1b8353bd13d20f1bd968be61e87dd7b002ccc0b89adc6086c9b65fdd594effc
+
+Megj.: Hosszabb számoknál szokás a kimenetet hexadecimális (16-os) számrendszerben ábrázolni
+
+A titkosítási, biztonsági témakört itt fejtem ki részletesebben (TODO).
+
+## Azonnali adatelérés, hash tábla
+
+Egy adatszerkezetben történő keresés viszonylag lassú művelet lehet.
+
+* Hagyományos tömbben végig kell nézni az összes elemet (lassú).
+* Rendezett tömbben vagy bináris fában (TODO: link) lépésenként ki tudjuk dobni az elemek felét (gyorsabb)
+
+Egy jó hash függvény segítségével azonban még ennél is gyorsabban, akár egy lépésből lekérdezhetjük, hogy egy adott elem szerepel-e az adatszerkezetünk-ben, vagy sem.
+
+### Az adatszerkezet
+
+Tegyük fel, hogy a hash függvényünk 10 különböző kimenetet tud adni (0-9). Ilyen pl. az f(x) = x mod 10, vagyis a szám 10-zel vett osztási maradéke.
+
+Ezért vegyünk fel egy 10 elemű tömböt, ami kezdetben üres:
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|   |   |   |   |   |   |   |   |   |   |
+
+Szeretnénk az alábbi elemet beszúrni: 15
+
+Elvégezzük rajta a hash függvényt: f(15) = 15 mod 5 = 5  
+Vagyis az 5-ös indexre fogjuk beszúrni:
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|   |   |   |   |   | 15 |   |   |   |   |
+
+A 121-et az 1-es indexre:
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|   | 121 |   |   |   | 15 |   |   |   |   |
+
+A 96-ot pedig a 6-os indexre:
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|   | 121 |   |   |   | 15 | 96 |   |   |   |
+
+### Kulcsütközés
+
+Előfordulhat, hogy olyan elemet szeretnénk beszúrni, ami már foglalt. Pl. a 75-nek is 5-ös a hash-e. Ezt úgy hívjuk, hogy *kulcsütközés*. Ennek a megoldására [több módszer is létezik](https://hu.wikipedia.org/wiki/Hash_t%C3%A1bla#Hash_%C3%BCtk%C3%B6z%C3%A9sek): Láncolás, lineáris ill. kvadratikus próba, kettős hash-elés.
+
+Mi most a lineáris próbát fogjuk használni.
+
+Ez azt jelenti, hogy megpróbáljuk a rákövetkező mezőbe beletenni az elemet, ha az is foglalt, akkor a következőbe... egészen addig, amíg üres mezőt nem találunk.
+
+A jelenlegi példában a 75 a 7-es index alá fog kerülni, mert az 5 és a 6 már foglalt:
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|   | 121 |   |   |   | 15 | 96 | 75 |   |   |
+
+Egy hash tábla akkor működik gyorsan, ha minél kevesebb a külcsütközés.
+
+### Kikeresés
+
+A 121 elem szerepel a táblában? Ehhez szintén a hash függvényt kell alkalmaznunk:
+
+f(121) = 1, ezért az 1-es index alatt nézzük meg. Ott is van, tehát benne van. **Igen, szerepel**.
+
+983 elem szerepel? f(983) = 3, a 3 index üres. Nincs ott, ezért máshol sem lehet. **Nem, nincs benne**.
+
+A 75? f(75) = 5 alatt a 15-ös szerepel. De ilyenkor azonban nem adhatjuk fel, mert mi van, ha kulcsütközés miatt máshova került?
+
+* Meg kell nézni a 6-os alatt is. Ott sem a 75 van.
+* 7-es alatt? **Igen, megtaláltuk!**
+
+A 86? f(86) = 6
+
+* 6-os alatt a 96 szerepel, ezért tovább kell mennünk
+* 7-es alatt a 75
+* 8-as üres, ezért megállhatunk: **nem szerepel**.
+
+
+### Törlés
+
+A törlés azért bonyolítja meg az életünket, mert a fenti lineáris próbát el tudja rontani. Képzeljük el, hogy naív módon kitöröljük a 96-ot:
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|   | 121 |   |   |   | 15 |   | 75 |   |   |
+
+Ez után a 75 kikeresése így zajlik:
+
+* f(75) = 5
+* 5-ös alatt 15 szerepel
+* 6-os üres **nem szerepel** <- Ez hibás!
+
+Törléskor ezért egy "jelölést" bent kell hagynunk, hogy tudjuk, az adott mező már egyszer valamikor tartalmazott értéket. Jelöljük pl. X-szel:
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|   | 121 |   |   |   | 15 | X | 75 |   |   |
+
+* f(75) = 5
+* 5-ös alatt 15 szerepel
+* 6-os üres, de X van benne, ezért továbbmegyünk
+* 7-es alatt a 75 van: **benne van**.
+
+Az X helyébe természetesen lehet új értéket is beszúrni, az nem ront el semmit:
+
+Beszúrunk: 455-öt:
+
+* f(455) = 5
+* 5 már foglalt
+* 6 üres, bár X szerepel, attól még felülírhatjuk:
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|   | 121 |   |   |   | 15 | 455 | 75 |   |   |
+
+### A jó hash függvény
+
+A jó hash függvény olyan, ami minél egyenletesebben szórja szét az elemeket a hash táblában, hogy minél kevesebbet kelljen próbával továbblépkedni. Az x mod 10 ebben az esetben nem volt jó függvény, mert sok elemet próbált az 5-ös és a 6-os indexre tenni, miközben a tábla fele üres maradt. Ideálisan az összes bitet, a magasabb helyiértékeket is figyelembe veszi.
+
+### A hash tábla mérete, születésnap-paradoxon
+
+A hash függvényünk legyen a legelső példánk:
+
+f(Személy) = Személy születésnapja (1-365 közötti szám)
+
+Hány főnél lesz 50%-nál nagyobb a valószínűsége, hogy két embernek ugyanaz a születésnapja (azaz kulcsütközés lép fel)?
+
+A válasz meglepően kicsi: **mindössze 23 embernél** már több, mint 50%!
+
+Ezt hivják [Születésnap-paradoxonnak](https://hu.wikipedia.org/wiki/Sz%C3%BClet%C3%A9snap-paradoxon). Nem azért paradoxon, mert valami matematikai probléma van vele, szimplán azért, mert az intuíciónknak teljesen ellentmond.
+
+Ez azt jelenti, hogy egy jól működő hash táblához a várható elemszámnál nagyságrenddel több memóriára van szükség. A 365-ös példánál is ez már több, mint az elemszám 15×-öse. Ha a memória az alkalmazásunk egy szűk keresztmetszete, akkor érdemsebb lehet egy lassabb, de kisebb memóriaigényű adatszerkezetet választani: pl. egy keresőfát.

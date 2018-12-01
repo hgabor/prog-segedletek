@@ -14,5 +14,10 @@ permalink: /diak/
 * Modellezés (avagy hogyan lesz a szöveges feladatból program)
   * [Adattervezés]({% post_url 2018-10-01-adattervezes %})
   * Osztályok tervezése
+* Algoritmusok és adatszerkezetek
+  * Rekurzió
+    * Összefésüléses rendezés
+  * Fa
+  * [Hash tábla]({% post_url 2018-12-01-hash %})
 * Kiegészítő témakörök
   * [Lambda függvények]({% post_url 2018-10-16-lambda-fuggveny %})
