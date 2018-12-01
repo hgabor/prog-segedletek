@@ -79,7 +79,7 @@ Egy jó hash függvény segítségével azonban még ennél is gyorsabban, akár
 
 ### Az adatszerkezet
 
-Tegyük fel, hogy a hash függvényünk 10 különböző kimenetet tud adni (0-9). Ilyen pl. az f(x) = x mod 10, vagyis a szám 10-zel vett osztási maradéke.
+Tegyük fel, hogy a hash függvényünk 10 különböző kimenetet tud adni (0-9). Ilyen pl. az f(x) = x mod 10, vagyis a szám 10-zel vett osztási maradéka.
 
 Ezért vegyünk fel egy 10 elemű tömböt, ami kezdetben üres:
 
