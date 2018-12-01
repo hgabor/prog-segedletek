@@ -300,7 +300,7 @@ Implementálás:
 
 Mivel a PHP-ben a változóknak nincsen típusa (csak az értékeknek), interfészek nélkül sem gond pl. egy ilyen tömb létrehozása:
 
-<pre><code class="csharp">$katalogus = [
+<pre><code class="php">$katalogus = [
     new DVD("Star Wars"),
     new Konyv("A Gyűrűk Ura"),
 ];
