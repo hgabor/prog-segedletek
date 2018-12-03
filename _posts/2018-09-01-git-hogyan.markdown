@@ -57,7 +57,7 @@ A tárgyalni kívánt környezetet (pl. C#-ban vagy PHP-ben dolgozzunk-e) én a 
 Adjuk ki "feladatnak" előre, hogy minden diák regisztráljon github-ra. A profil URL-eket gyűjtsük be pl. egy google form segítségével.
 Ha valaki elfelejti, az óra elején pár perc alatt pótolhatja, de a cél, hogy ezzel ne teljen sok idő.
 
-A profil URL-eket felhasználóhatjuk, hogy a jövőben szintén github-on kérjük be a házi feladatokat.
+A profil URL-eket felhasználhatjuk, hogy a jövőben szintén github-on kérjük be a házi feladatokat.
 
 ## Elméleti alapozás (részletességtől függően 1-2h)
 

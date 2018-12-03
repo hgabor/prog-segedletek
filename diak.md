@@ -17,7 +17,7 @@ permalink: /diak/
 * Algoritmusok és adatszerkezetek
   * Rekurzió
     * Összefésüléses rendezés
-  * Fa
+  * [Fa]({% post_url 2018-12-02-fa %})
   * [Hash tábla]({% post_url 2018-12-01-hash %})
 * Kiegészítő témakörök
   * [Lambda függvények]({% post_url 2018-10-16-lambda-fuggveny %})

@@ -73,7 +73,7 @@ A titkosítási, biztonsági témakört itt fejtem ki részletesebben (TODO).
 Egy adatszerkezetben történő keresés viszonylag lassú művelet lehet.
 
 * Hagyományos tömbben végig kell nézni az összes elemet (lassú).
-* Rendezett tömbben vagy bináris fában (TODO: link) lépésenként ki tudjuk dobni az elemek felét (gyorsabb)
+* Rendezett tömbben vagy [bináris fában]({% post_url 2018-12-02-fa %}) lépésenként ki tudjuk dobni az elemek felét (gyorsabb)
 
 Egy jó hash függvény segítségével azonban még ennél is gyorsabban, akár egy lépésből lekérdezhetjük, hogy egy adott elem szerepel-e az adatszerkezetünk-ben, vagy sem.
 

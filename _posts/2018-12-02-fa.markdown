@@ -1,0 +1,154 @@
+---
+layout: post
+title:  "Fa"
+date:   2018-12-02 10:00:00 +0100
+tags: 14evfolyam adatszerkezetek
+---
+
+> A fa matematikai definíciója: összefüggő, körmentes gráf.
+
+Amellett, hogy pontos és precíz, programozási szempontból semennyit nem segít abban, hogy megértsük, mire is jó. Ehelyett kevésbé "precízen", de sokkal hasznosabban fogjuk megfogalmazni.
+
+A fa egy olyan adatszerkezet, amely egy gyökérelemből indul ki, és minden elemnek lehet egy vagy több további gyereke. Ezen belül, attól függően, hogy milyen egyéb megkötéseket hozunk, hogyan tároljuk az elemeket, a különböző fa-típusok különböző célra lesznek jók.
+
+Az alábbi pl. egy ún. "2-3 fa":
+
+![2-3 fa](/assets/img/23tree.svg)
+
+## Bináris fa
+
+A **bináris** fa egy olyan fa, amiben minden elemnek legfeljebb két gyereke van.
+
+![Bináris fa](/assets/img/binary_tree.svg)
+
+## Bináris keresőfa
+
+A bináris **keresőfa** a bináris fának egy alfaja:
+
+* Minden elem csak egyszer szerepelhet
+* Egy elem bal oldalán csak és kizárólag az adott elemnél kisebb elemek, a jobb oldalon pedig csak nagyobb elemek találhatók
+  * Ez nem csak a közvetlen gyerekekre vonatkozik, hanem teljes rész-fára!
+
+A bináris fa nagy előnye az adattárolással kapcsolatban, hogy a kesesési műveletet nagyban meg tudja gyorsítani. Egy tömbbel összehasonlítva nem kell minden elemet bejárni, hanem elég 
+
+Végtelen kép helyett egy interaktív demón keresztül sokkal érthetőbb a működés:
+
+### [Bináris keresőfa vizuálisan](https://www.cs.usfca.edu/~galles/visualization/BST.html)
+
+Az "Insert", "Delete", "Find" gombokkal kipróbálható a beszúrás, törlés, keresés művelet, alul pedig az "Animation speed" csúszkával gyorsítható ill. lassítható az animáció.
+
+A bináris keresőfa egy rekurzív adatszerkezet. Ez azt jelenti, hogy ha bármelyik gyerekelemet nézzük, azt tekinthetjük úgy, mint egy kisebb, teljes értékű bináris fa. Ezért a használt algoritmusokat is egyszerű rekurzívan elkészíteni.
+
+### Beszúrás
+
+Ha a beszúrandó elem kisebb, mint az aktuálisan vizsgált elem, akkor balra próbáljuk beszúrni, ha nagyobb, akkor jobb oldalra. Ha a bal vagy jobb oldal már foglalt, akkor rekurzívan az adott elemen folytatjuk a vizsgálatot.
+
+<pre>
+BiFaElem.Beszúr(újÉrték):
+    Ha this.érték > újÉrték:
+        Ha this.bal != null:
+            this.bal.Beszúr(újÉrték)
+        Különben:
+            this.bal = új BiFaElem(újÉrték)
+    Különben ha this.érték < újÉrték:
+        Ha this.jobb != null:
+            this.jobb.Beszúr(újÉrték)
+        Különben:
+            this.jobb = új BiFaElem(újÉrték)
+    Különben:
+        // Egyenlő, nem szúrunk be
+</pre>
+
+A vizualizációs oldalon próbáljuk meg beszúrni az alábbi elemeket: 45 0 9 -8 99 20
+
+Figyeljük meg, hogy az elemek a fenti algoritmussal kerülnek beszúrásra, és az eredményül kapott fa teljesíti a keresőfa definícióját.
+
+### Keresés
+
+A keresésre használt algoritmus nagyon hasonló lesz a beszúráshoz. Beszúrás helyett azonban egy igaz-hamis értéket adunk vissza:
+
+<pre>
+BiFaElem.Tartalmaz-e(érték) : logikai
+    Ha this.érték > érték:
+        Ha this.bal != null
+            Ki(this.bal.Tartalmaz-e(érték))
+        Különben:
+            // Bal oldalt kellene lennie, de nincs ott semmi
+            Ki(hamis)
+    Különben ha this.érték < érték:
+        Ha this.jobb != null
+            Ki(this.bal.Tartalmaz-e(érték))
+        Különben:
+            // Jobb oldalt kellene lennie, de nincs ott semmi
+            Ki(hamis)
+    Különben:
+        // Egyenlő, megtaláltuk
+        Ki(igaz)
+</pre>
+
+A vizualizációs oldalon keressük ki az alábbi elemeket: 99 9 15
+
+### Törlés
+
+A törlés művelethez először meg kell találnunk egy kereséssel az elemet. Ha nincs a fában, akkor természetesen nincs mit törölnünk. Ha megtaláltuk, akkor azonban nem nyilvánvaló, mit is tegyünk.
+
+* Levélelem (legalsó elem, nincs gyereke) törlésekor nincs probléma
+* Ha egy gyereke van, akkor azt az elemet "felhúzhatjuk" az eredeti helyébe
+* A próbléma az az eset, amikor a törölt elemnek két gyereke van.
+
+A megoldás az lesz, hogy a fában egy másik elemet választunk ki, ami a törölt elem helyére kerül majd. Ez egy olyan elem kell, hogy legyen, ami kisebb, mint az összes jobb oldali elem, és nagyobb, mint az összes bal oldali elem.
+
+Ilyenből kettő is lehet:
+
+* A jobb ágnak a "legbaloldalabbik" (azaz a legkisebb) eleme
+* A bal ágnak a "legjobboldalabbik" (azaz a legnagyobb) eleme
+
+Mi most az utóbbit fogjuk választani.
+
+Figyeljük meg, mi történik, ha töröljük az alábbi elemeket egymás után: 45 0
+
+### Bejárás
+
+Bejárásnak (traversal) azt nevezzük, ha egy adatszerkezet minden elemén elvégzünk egy műveletet (pl. egy kiíratást, összegzést stb.). A legtöbb programnyelvben létezik egy "foreach" művelet, ami adatszerkezettől függetlenül el tudja ezt végezni.
+
+A bináris fát az alábbi módon járjuk be a leggyakrabban:
+
+<pre>
+BiFaElem.Bejár():
+    Ha this.bal != null:
+        this.bal.Bejár()
+    Művelet(this.érték) // pl. konzolra kiírás
+    Ha this.jobb != null:
+        this.jobb.Bejár()
+</pre>
+
+Ha a fenti beszúrást, törlést elvégeztük, akkor az algoritmus az alábbi kimenetet kell, hogy adja:
+
+-8 9 20 99
+
+Az, hogy a kimenet sorrendben van, nem véletlen: először az aktuális elemnél kisebbeket vesszük sorra, majd az aktuálisat, végül a nagyobbakat. Emiatt gyakran használják adatbázisokban a keresés és a sorrendbe tétel meggyorsítására.
+
+Ezt a bejárási módot ezért BKJ (bal-közép-jobb, in-order) bejárásnak is bevezzük. Két használt bejárási sorrend még:
+
+* KBJ (közép-bal-jobb, pre-order)
+  * 20 -8 9 99
+  * Ha egy másik fába az elemeket ebben a sorrendben szúrjuk be, akkor az új fa teljesen meg fog egyezni az eredeti fával
+  * Egy [kifejezésfából](https://en.wikipedia.org/wiki/Binary_expression_tree) [Lengyel formát](https://en.wikipedia.org/wiki/Polish_notation) készít
+* BJK (bal-jobb-közép, post-order)
+  * 9 -8 99 20
+  * Egy kifejezésfából [Fordított lengyel formát](https://en.wikipedia.org/wiki/Reverse_Polish_notation) készít
+
+## Önkiegyenlítés
+
+Extrém esetekben előfordulhat, hogy a bináris fa egik ágán nagyon sok elem, a többi ágon viszont nagyon kevés található. Ez a keresést nagyon le tudja lassítani.
+
+A vizualizáción, egy új, üres fába próbáljuk beszúrni az alábbi elemeket, hogy lássuk a problémát: 1 2 3 4 5 6 7 8 9 10
+
+Egy fát fel lehet szerelni az _önkiegyenlítés_ módszerével, ami a fa elemeinek átrendezésével, a fa "forgatásával" kiegyenlíti a legnagyobb és legkisebb ágakat, megtarva a keresőfa tulajdonságot.
+
+Ilyen pl.:
+
+* [Piros-fekete fa](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree) - [vizualizáció](https://www.cs.usfca.edu/~galles/visualization/RedBlack.html)
+* [AVL-fa](https://en.wikipedia.org/wiki/AVL_tree) - [vizualizáció](https://www.cs.usfca.edu/~galles/visualization/AVLtree.html)
+
+A bevezetőben említett 2-3 fa pedig úgy oldja meg a kiegyenlítést, hogy megengedi azt, hogy 2 helyett 3 eleme is legyen egy elemnek: [vizualizáció](https://www.cs.usfca.edu/~galles/visualization/BPlusTree.html) (Max. Degree = 3)
