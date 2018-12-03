@@ -158,7 +158,7 @@ list.Add(new Szemely("Telapo", new DateTime(1600, 12, 6)));
 list.Sort((sz1, sz2) => -(sz1.Nev.CompareTo(sz2.Nev)));
 </code></pre>
 
-A tömör példában, ha nem írunk kapcsol zárójeleket, akkor csak egy kifejezést lehet megadni, amit automatikusan visszatérési értékként használ fel.
+A tömör példában, ha nem írunk kapcsos zárójeleket, akkor csak egy kifejezést lehet megadni, amit automatikusan visszatérési értékként használ fel.
 
 ### PHP
 
