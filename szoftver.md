@@ -10,6 +10,7 @@ permalink: /szoftver/
 
 * C#:
   * [Visual Studio 2017 Community](https://visualstudio.microsoft.com/downloads/)
+  * [Unity Personal](https://store.unity.com/download?ref=personal)
 * Java:
   * Java Development Kit (ez tartalmazza a fordítót, ezért kötelező):
       * [Java JDK 8](https://www.oracle.com/technetwork/java/javase/overview/index.html) - iskolai gépeken használt, Netbeans 8 ennél újabbal nem működik
