@@ -21,15 +21,15 @@ A **bináris** fa egy olyan fa, amiben minden elemnek legfeljebb két gyereke va
 
 ![Bináris fa](/assets/img/binary_tree.svg)
 
-Haszna azonban akkor van ennek az adatszerkezetnek, ha különféle egyéb szabályokat követelenünk meg. Pl. egy ilyen szabály lehet:
+Haszna azonban akkor van ennek az adatszerkezetnek, ha különféle egyéb szabályokat követelünk meg. Pl. egy ilyen szabály lehet:
 
 * Minden elemnek kisebbnek / nagyobbnak kell lennie a gyerekeinél
-* A legalsó kivételével minden szintnek be kell legyen töltve
-* Az utolsó szintnek pedig ha nincs betöltve, akkor balról jobbra kell feltölteni
+* A legalsó kivételével minden szintnek fel kell legyen töltve
+* Az utolsó szintnek pedig ha nincs feltöltve, akkor balról jobbra kell feltölteni
 
 Ebben az esetben az adatszerkezet a bináris fának egy speciális változata, az ún. [kupac](https://hu.wikipedia.org/wiki/Kupac_(adatszerkezet)).
 
-A bináris keresőfa is a bináris fának egy speciális változata.
+A bináris keresőfa is a bináris fának egy speciális változata:
 
 ## Bináris keresőfa
 
