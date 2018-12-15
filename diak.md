@@ -7,6 +7,7 @@ permalink: /diak/
 ## Segédletek
 
 * [Verziókezelés, git bevezető]({% post_url 2018-02-21-git-bevezeto %})
+  * [GitHub fork-olás]({% post_url 2018-12-15-github-forking %})
 * [OOP bevezetés]({% post_url 2018-09-26-oop-alapok %})
   * Osztályok közötti kapcsolatok
   * [Interfészek]({% post_url 2018-12-01-interface %})
