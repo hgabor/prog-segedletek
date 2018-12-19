@@ -243,3 +243,110 @@ Gráf.MohóSzínezés(): Szótár(egész => egész)
     vissza: színezés
 </pre>
 
+## Útkeresés - Dijkstra
+
+Az **útkeresés** azt az algoritmust jelöli, hogy egy adott keződőpontból hogyan lehet eljutni az összes többi pontba, a lehető legrövidebb idő (legkisebb súly) felhasználásával.
+
+Ehhez a gráfunkat ki kell egészíteni, hogy az élek tartalmazzanak egy súly tulajdonságot is:
+
+<pre>
+Él osztály:
+    csúcs1: egész
+    csúcs2: egész
+    súly: lebegőpontos, > 0
+</pre>
+
+Az útkeresés [Dijkstra algoritmusával](https://hu.wikipedia.org/wiki/Dijkstra-algoritmus) fog történni. Egy segédosztályt is definiálunk, amiben az átmeneti, ill. a végeredményt tároljuk. Minden csúcshoz egy ilyen objektum fog tartozni:
+
+<pre>
+CsúcsAdat osztály:
+    // Ebből a csúcsból érkeztünk
+    forrásCsúcs: egész = -1
+    // Ennyi a minimun költség, kezdetben végtelen
+    költség: lebegőpontos = végtelen
+    // Már vizsgáltuk-e:
+    vizsgáltuk: logikai = hamis
+</pre>
+
+Az algoritmus kimenete egy szótár, minden csúcshoz hozzárendeli a csúcshoz tartozó költséget, és hogy ahhoz a csúcshoz hogyan lehet eljutni.
+
+<pre>
+Gráf.Dijkstra(kezdőpont: egész): Szótár(egész => CsúcsAdat)
+
+    csúcsAdatok = új Szótár()
+    Ciklus csúcsIndex = 0-tól this.csúcsokSzáma-1 -ig:
+        csúcsAdatok.hozzáad(csúcsIndex, új CsúcsAdat())
+
+    // A kezdőpont költsége 0, hiszen innen indulunk:
+    csúcsAdatok[kezdőpont].költség = 0
+
+    // Minden csúcsot megvizsgálunk, de nem a szokványos sorrendben
+    vizsgáltDarab = 0
+    Ciklus amíg vizsgáltDarab < this.csúcsokSzáma:
+        vizsgáltDarab++
+
+        // Segédfüggvény, amely kiválasztja a következő csúcst
+        // l. lentebb
+        vizsgáltCsúcs = this.KövetkezőCsúcs(csúcsAdatok)
+        csúcsAdatok[vizsgáltCsúcs].vizsgáltuk = igaz
+        
+        // Vizsgáljuk meg a szomszédos csúcsokat:
+        Ciklus él = this.élek elemei:
+            Ha él.csúcs1 == aktuálisCsúcs:
+
+                // Ha ezen a csúcson keresztül szeretnénk
+                // a másik csúcsba eljutni, akkor
+                // ennyibe kerülne:
+                újKöltség = csúcsAdatok[vizsgáltCsúcs].költség + él.súly
+
+                // Ha az kisebb, akkor javítsunk az úton:
+                Ha újKöltség < csúcsAdatok[él.csúcs2].költség:
+                    csúcsAdatok[él.csúcs2].költség = újKöltség
+                    csúcsAdatok[él.csúcs2].forrásCsúcs = aktuálisCsúcs
+    
+    // Ha minden elemet megvizsgáltunk, akkor a szótárunk
+    // tartalmazni fogja a költségeket és az útvonalat
+    vissza: csúcsAdatok
+
+
+// A következő csúcs a legkisebb költségű lesz,
+// de csak akkor, ha még nem vizsgáltuk
+Gráf.KövetkezőCsúcs(csúcsAdatok): egész
+    minIndex = index:
+    Ciklus index, adat = csúcsAdatok elemei:
+        Ha (adat.vizsgáltuk == hamis) és
+           (adat.költség < csúcsAdatok[minIndex].költség):
+            minIndex = index
+
+    vissza: minIndex
+</pre>
+
+### Példa
+
+Vegyük az alábbi gráfot:
+
+![Gráf példa Dijkstra algoritmusra](/assets/img/graph-dijkstra.svg)
+
+Az algoritmus végeredménye egy ehhez hasonló táblázat lesz, a kiindulópont itt az 1-es index volt:
+
+| kulcs | forrásCsúcs | költség | vizsgáltuk |
+|:-----:|:-----------:|:-------:|:----------:|
+|   0   |      1      |    1    |    igaz    |
+|   1   |      -1     |    0    |    igaz    |
+|   2   |      3      |    7    |    igaz    |
+|   3   |      1      |    5    |    igaz    |
+|   4   |      2      |    11   |    igaz    |
+
+Az első oszlop a szótár kulcsa, a többi az objektum értékei.
+
+A forrásCsúcs oszlopot visszakövetve kinyerhetjük, hogy milyen úton jutottunk el pl. a 4-es pontba:
+
+* A 4 a célpont: \[**4**]
+* 4-nek a forráscsúcsa 2: \[**2**, 4]
+* 2-nek a forráscsúcsa 3: \[**3**, 2, 4]
+* 3-nak a forráscsúcsa 1: \[**1**, 3, 2, 4]
+* Az 1 a kezdőpont, végeztünk
+
+Az 1-ből 4-be a legkisebb költségű út az 1-3-2-4 élsorozat, a költsége 11.
+
+Bármely útkeresési algoritmus **csak pozitív súlyokkal működik helyesen.** Ha negatív súlyt is felvennénk, akkor az adott élen oda-vissza járva tetszőlegesen le lehetne csökkenteni a költséget, aminek nincs gyakorlati értelme.
