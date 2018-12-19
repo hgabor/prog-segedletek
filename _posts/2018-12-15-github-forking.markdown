@@ -34,6 +34,8 @@ Ilyen módon lehet karban tartani pl. egy népszerű, Linux-os projekt Windows-o
 
 A két projekt innentől kezdve párhuzamosan fut.
 
+Alkalomszerűen előfordulhat, hogy a fork-olt projekt válik népszerűbbé, mert az eredeti tulajdonosánál jobban karban tartja, gyorsabban fejleszti az új funkciókat stb. Ez történt az OpenOffice esetében is: az eredeti projekt jövőjét féltették az Oracle-től, ezért készítettek a fork-ot, a jogi problémákat elkerülendő a projektet átneveztét LibreOffice-re, és azóta ez lett a népszerűbb változat.
+
 ## Pull request
 
 Ha a saját módosításunkat az eredeti projekt fejlesztői is szívesen látnának, akkor készíthetünk egy ún. **pull request**-et. Ez egy felkérés arra, hogy bizonyos commitokat az eredeti fejlesztő pull-oljon a mi projektünkből. Ezt ő pedig elfogadhatja, vagy visszautasíthatja.
