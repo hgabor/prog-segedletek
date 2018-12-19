@@ -194,15 +194,52 @@ Gráf.Feszitőfa(): Gráf
     Ciklus amíg következők nem üres:
         k = következők.kivesz()
 
-        Ciklus él = this.elek elemei:
+        Ciklus él = this.élek elemei:
             Ha él.csúcs1 == aktuálisCsúcs:
                 Ha bejárt nem tartalmazza él.Csúcs2-t
-                    bejárt.hozzaad(él.csúcs2)
+                    bejárt.hozzáad(él.csúcs2)
                     következők.hozzáad(él.Csúcs1)
                     // A fába is vegyük bele az élt
-                    fa.hozzaad(él.Csucs1, él.csúcs2)
+                    fa.hozzáad(él.Csucs1, él.csúcs2)
 
     // Az eredményül kapott gráf az eredeti gráf feszítőfája
     vissza: fa
+</pre>
+
+## Csúcs-színezés mohó algoritmussal
+
+A feladat lényege, hogy mindn csúcsot úgy kell egy adott színre színezni, hogy az egymással szomsédos csúcsok ne legyenen egyszínűek. Gondoljunk egy térképre: [a szomszédos országok különböző színűek.](https://geology.com/world/world-map.shtml)
+
+Az algoritmus attól mohó, hogy nem gondolkodik előre, nem foglalkozik azzal, hogy a lehető legkevesebb színt használja fel.
+
+Az algoritmus kimenete egy (csúcs: egész) => (szín: egész) szótár lesz. A színt is 0...N-1 közötti egész számokkal jelöljük.
+
+<pre>
+Gráf.MohóSzínezés(): Szótár(egész => egész)
+    színezés = új üres Szótár()
+
+    // Legrosszabb esetben minden csúcsot különböző színűre kell színezni,
+    // ezért ennyi szín elég lesz
+    maxSzín = this.csúcsokSzáma
+
+    Ciklus aktuálisCsúcs = 0-tól this.csúcsokSzáma - 1 -ig:
+        // Kezdetben bármely színt választhatjuk
+        választhatóSzínek = új Halmaz(), amely
+            0...maxSzín-1 elemekkel van feltöltve
+
+        // Vizsgáljuk meg a szomszédos csúcsokat:
+        Ciklus él = this.élek elemei:
+            Ha él.csúcs1 == aktuálisCsúcs:
+                // Ha a szomszédos csúcs már be van színezve,
+                // azt a színt már nem választhatjuk
+                Ha színezés.tartalmazKulcsot(él.csúcs2):
+                    szín = színezés[él.csúcs2]
+                    választhatóSzínek.kivesz(szín)
+
+        // A maradék színekből válasszuk ki a legkisebbet
+        választottSzín = Min(választhatóSzínek)
+        színezés.hozzáad(aktuálisCsúcs, választottSzín)
+
+    vissza: színezés
 </pre>
 
