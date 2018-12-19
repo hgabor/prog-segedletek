@@ -21,5 +21,6 @@ permalink: /diak/
   * [Fa]({% post_url 2018-12-02-fa %})
   * [Hash tábla]({% post_url 2018-12-01-hash %})
   * [Gráfok]({% post_url 2018-12-19-graf-bevezeto %})
+    * [A fontosabb algoritmusok]({% post_url 2018-12-19-graf-algoritmusok %})
 * Kiegészítő témakörök
   * [Lambda függvények]({% post_url 2018-10-16-lambda-fuggveny %})
