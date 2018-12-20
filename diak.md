@@ -22,5 +22,6 @@ permalink: /diak/
   * [Hash tábla]({% post_url 2018-12-01-hash %})
   * [Gráfok]({% post_url 2018-12-19-graf-bevezeto %})
     * [A fontosabb algoritmusok]({% post_url 2018-12-19-graf-algoritmusok %})
+  * [Logikai adatszerkezetek]({% post_url 2018-12-20-logikai-adatszerkezetek %}): Verem, sor, prioritási sor, halmaz, szótár
 * Kiegészítő témakörök
   * [Lambda függvények]({% post_url 2018-10-16-lambda-fuggveny %})
