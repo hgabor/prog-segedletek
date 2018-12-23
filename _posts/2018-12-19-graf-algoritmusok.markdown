@@ -66,7 +66,7 @@ Gráf.SzelességiBejár(kezdopont: egész):
         k = következők.kivesz()
 
         // Elvégezzük a bejárási műveletet, pl. a konzolra kiírást:
-        Kiír(k)
+        Kiír(this.csúcsok[k])
 
         Ciklus él = this.élek elemei:
             // Megkeressük azokat az éleket, amelyek k-ból indulnak
@@ -99,7 +99,7 @@ Gráf.MélységiBejár(kezdopont: egész):
         k = következők.kivesz()
 
         // Elvégezzük a bejárási műveletet, pl. a konzolra kiírást:
-        Kiír(k)
+        Kiír(this.csúcsok[k])
 
         Ciklus él = this.élek elemei:
             // Megkeressük azokat az éleket, amelyek k-ból indulnak
@@ -126,7 +126,7 @@ Graf.MélységiBejár(kezdőpont: egész):
 // Segédfüggvény, amely magát a rekurziót végzi
 Gráf.MélységiBejárRekurzív(k: egész, bejárt: Halmaz):
     // Elvégezzük a bejárási műveletet, pl. a konzolra kiírást:
-    Kiír(k)
+    Kiír(this.csúcsok[k])
 
     Ciklus él = this.élek elemei:
         // Megkeressük azokat az éleket, amelyek k-ból indulnak
