@@ -23,5 +23,10 @@ permalink: /diak/
   * [Gráfok]({% post_url 2018-12-19-graf-bevezeto %})
     * [A fontosabb algoritmusok]({% post_url 2018-12-19-graf-algoritmusok %})
   * [Logikai adatszerkezetek]({% post_url 2018-12-20-logikai-adatszerkezetek %}): Verem, sor, prioritási sor, halmaz, szótár
+* Tesztelés
+  * Tesztelési módszerek
+  * [Egységtesztelés (Unit testing)]({% post_url 2019-03-02-nunit %})
+* Jogi alapismeretek - szerzői jog, védjegy, szabadalom
+  * Nyílt forrású alkalmazások, szabad szoftver
 * Kiegészítő témakörök
   * [Lambda függvények]({% post_url 2018-10-16-lambda-fuggveny %})
