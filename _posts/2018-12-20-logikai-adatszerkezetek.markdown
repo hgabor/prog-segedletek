@@ -92,7 +92,7 @@ h.bennevan(5)            // Igaz
 * Angolul map
   * Map: párosítás
   * Dictionary: szótár
-  * Asszociatív tömb: assicative array
+  * Asszociatív tömb: associative array
 * Minden értékhez tartozik egy **egyedi** kulcs, amely alapján lehet az értékeket kikeresni
 
 <pre>
