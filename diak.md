@@ -27,6 +27,6 @@ permalink: /diak/
   * [Tesztelési módszerek]({% post_url 2019-03-06-teszteles %})
   * [Egységtesztelés (Unit testing)]({% post_url 2019-03-02-nunit %})
 * [Jogi alapismeretek - szerzői jog, védjegy, szabadalom]({% post_url 2019-03-04-jogi-alapismeretek %})
-  * Nyílt forrású alkalmazások, szabad szoftver
+  * [Nyílt forráskód, szabad szoftver]({% post_url 2019-03-06-szabad-szoftver %})
 * Kiegészítő témakörök
   * [Lambda függvények]({% post_url 2018-10-16-lambda-fuggveny %})
