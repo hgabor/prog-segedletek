@@ -51,6 +51,6 @@ Az egyik legnépszerűbb használati területe a weboldalak és app-ok készít�
 
 Egy népszerű, agilis módszertan a [Scrum](https://en.wikipedia.org/wiki/Scrum_(software_development)). (megj.: ebben az esetben a magyar nyelvű wikipédia szócikket NEM ajánlom).
 
-Agilis módszerek is vannak limitáció, pl. Nem alkalmaztóak olyan helyzetekben:
+Agilis módszerek is vannak limitációi, pl. nem alkalmaztóak olyan helyzetekben:
 * ahol a fejlesztésre, tesztelésre szigorú előírások vonatkoznak, mint pl. orvosi eszközök készítése, vagy az autóipar (maga a tesztelés, engedélyeztetés több idő, mint egy iteráció)
 * ha a projeknek sok külső függősége van, a csapatoknak egymásra / az ügyfélre kell várniuk
