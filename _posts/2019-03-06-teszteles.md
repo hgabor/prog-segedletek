@@ -2,7 +2,7 @@
 layout: post
 title:  "Tesztelési módszerek"
 date:   2019-03-06 10:00:00 +0100
-tags: 14evfolyam teszteles
+tags: 14evfolyam teszteles modszertan
 ---
 
 Két fő fogalmat kell tisztázni, mielőtt a tesztelés módszereibe belekezdenénk:
