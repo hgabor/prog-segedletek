@@ -208,7 +208,7 @@ Gráf.Feszitőfa(): Gráf
 
 ## Csúcs-színezés mohó algoritmussal
 
-A feladat lényege, hogy mindn csúcsot úgy kell egy adott színre színezni, hogy az egymással szomsédos csúcsok ne legyenen egyszínűek. Gondoljunk egy térképre: [a szomszédos országok különböző színűek.](https://geology.com/world/world-map.shtml)
+A feladat lényege, hogy mindn csúcsot úgy kell egy adott színre színezni, hogy az egymással szomszédos csúcsok ne legyenen egyszínűek. Gondoljunk egy térképre: [a szomszédos országok különböző színűek.](https://geology.com/world/world-map.shtml)
 
 Az algoritmus attól mohó, hogy nem gondolkodik előre, nem foglalkozik azzal, hogy a lehető legkevesebb színt használja fel.
 

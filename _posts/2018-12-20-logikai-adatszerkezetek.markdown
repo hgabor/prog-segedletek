@@ -244,7 +244,7 @@ Ha az elemeink, kulcsaink egész vagy string típusúak, akkor a tömbből akár
 $set[5] = true;            // Hozzáadás a halmazhoz
 $set[1] = true;
 $set[11] = true;
-$set[5];                   // Duplán hozzáadás sem gond
+$set[5] = true;            // Duplán hozzáadás sem gond
 print( count($set) );      // 3
 print( isset($set[2]) );   // false
 print( isset($set[5]) );   // true
