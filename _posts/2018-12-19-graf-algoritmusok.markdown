@@ -192,7 +192,7 @@ Gráf.Feszitőfa(): Gráf
 
     // Szélességi bejárás
     Ciklus amíg következők nem üres:
-        k = következők.kivesz()
+        aktuálisCsúcs = következők.kivesz()
 
         Ciklus él = this.élek elemei:
             Ha él.csúcs1 == aktuálisCsúcs:
