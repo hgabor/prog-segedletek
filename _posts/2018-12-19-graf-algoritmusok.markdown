@@ -198,7 +198,7 @@ Gráf.Feszitőfa(): Gráf
             Ha él.csúcs1 == aktuálisCsúcs:
                 Ha bejárt nem tartalmazza él.Csúcs2-t
                     bejárt.hozzáad(él.csúcs2)
-                    következők.hozzáad(él.Csúcs1)
+                    következők.hozzáad(él.Csúcs2)
                     // A fába is vegyük bele az élt
                     fa.hozzáad(él.Csucs1, él.csúcs2)
 
