@@ -35,6 +35,7 @@ A _dőlt betűvel szedett_ témakörök kidolgozása folymatban van.
   * **Tesztelés:**
     * [Tesztelési módszerek]({% post_url 2019-03-06-teszteles %})
     * [Egységtesztelés (Unit testing)]({% post_url 2019-03-02-nunit %})
+* [Titkosítás, biztonság]({% post_url 2020-03-29-titkositas %})
 * [Jogi alapismeretek - szerzői jog, védjegy, szabadalom]({% post_url 2019-03-04-jogi-alapismeretek %})
   * [Nyílt forráskód, szabad szoftver]({% post_url 2019-03-06-szabad-szoftver %})
 * Kiegészítő témakörök
