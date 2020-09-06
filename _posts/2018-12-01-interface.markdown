@@ -238,7 +238,7 @@ Ezt implementálva egy DVD-kből alló listát rendezhetünk a beépített rende
 <pre><code class="csharp">var dvdk = new List&lt;Dvd>();
 dvdk.Add(new Dvd("Star Wars IV", 210));
 dvdk.Add(new Dvd("Star Wars V", 180));
-dvdk.Add(new Dvd("Star Wars V", 200));
+dvdk.Add(new Dvd("Star Wars VI", 200));
 dvdk.Sort(); // Rendezés hossz szerint
 </code></pre>
 
@@ -246,7 +246,7 @@ A List.Sort() függvény készítőinek fogalma sem volt arról, hogy valaha DVD
 
 ## Más nyelvekben
 
-C#-ban a fentiekben láttunk példát interfész definiálására és implementálására. Mivel a property-k is valósjában függvények, implementáció nélkül gettereket és settereket is felvehetünk.
+C#-ban a fentiekben láttunk példát interfész definiálására és implementálására. Mivel a property-k is valójában függvények, implementáció nélkül gettereket és settereket is felvehetünk.
 
 <pre><code class="csharp">interface IAllat
 {
@@ -284,17 +284,17 @@ Implementálás:
 
 <pre><code class="php">interface Allat {
     function hangotAd();
-    function eszik($etel);
-    function getNev();
-    function setNev($ujNev);
+    function eszik(string $etel);
+    function getNev() : string;
+    function setNev(string $ujNev);
 }
 </code></pre>
 
 <pre><code class="php">class Papagaj implements Allat {
     public function hangotAd() { /* ... */ }
-    public function eszik($etel) { /* ... */ }
-    public function getNev() { /* ... */ }
-    public function setNev($ujNev) { /* ... */ }
+    public function eszik(string $etel) { /* ... */ }
+    public function getNev() : string { /* ... */ }
+    public function setNev(string $ujNev) { /* ... */ }
 }
 </code></pre>
 
