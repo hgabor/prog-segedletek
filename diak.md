@@ -31,7 +31,7 @@ A _dőlt betűvel szedett_ témakörök kidolgozása folymatban van.
       * [Hash tábla]({% post_url 2018-12-01-hash %})
       * [Gráfok]({% post_url 2018-12-19-graf-bevezeto %})
         * [A fontosabb algoritmusok]({% post_url 2018-12-19-graf-algoritmusok %})
-      * [Logikai adatszerkezetek]({% post_url 2018-12-20-logikai-adatszerkezetek %}): Verem, sor, prioritási sor, halmaz, szótár
+      * [Absztrakt adattípusok]({% post_url 2018-12-20-absztrakt-adattipusok %}): Verem, sor, prioritási sor, halmaz, szótár
   * **Tesztelés:**
     * [Tesztelési módszerek]({% post_url 2019-03-06-teszteles %})
     * [Egységtesztelés (Unit testing)]({% post_url 2019-03-02-nunit %})

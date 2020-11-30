@@ -1,16 +1,16 @@
 ---
 layout: post
-title:  "Logikai adatszerkezetek"
+title:  "Absztrakt adattípusok"
 date:   2018-12-20 10:00:00 +0100
 tags: 14evfolyam adatszerkezetek oop programozas
 ---
 
 Az adatszerkezeteket kétféleképp is megkülönböztethetjük.
 
-Felépítés szerint (pl. tömb, fa, hash tábla), vagy pedig a rajtuk elvégezhető műveletek szerint. Erre a két kategóriára nincs általánosan elfogadott szakszó, ezért úgy fogom hívni őket, hogy:
+Felépítés szerint (pl. tömb, fa, hash tábla), vagy pedig a rajtuk elvégezhető műveletek szerint:
 
-* Fizikai adatszerkezetek (a felépítés szerinti)
-* Logikai adatszerkezetek (műveletek szerint)
+* Adatszerkezetek (a felépítés szerinti)
+* Absztrakt adattípusok (műveletek szerint)
 
 Itt most az utóbbiból mutatok be néhányat.
 
