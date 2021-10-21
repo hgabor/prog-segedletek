@@ -69,7 +69,7 @@ Fontos! A szoftverfejlesztői OKJ tételek közt szerepel a DES/3DES algoritmus.
 
 ## Kétkulcsos/aszimmetrikus titkosítás
 
-Tegyük fel, hogy Alice és Bob nem tudjnak egy titkos kódban megegyezni előre, mégis szeretnének üzenetet váltani, leghallgatás nélkül.
+Tegyük fel, hogy Alice és Bob nem tudnak egy titkos kódban megegyezni előre, mégis szeretnének üzenetet váltani, lehallgatás nélkül.
 
 Először is nézzünk egy kis gondolkodtató, találós kérdést. Alice-nak van egy doboza, amire rátehet egy lakatot. Ekkor nem tud más belenézni. De ha Bob megkapja a lezárt dobozt, ő sem tudja kinyitni.
 
