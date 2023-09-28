@@ -9,17 +9,15 @@ permalink: /szoftver/
 ### Fejlesztéshez:
 
 * C#:
-  * [Visual Studio 2017 Community](https://visualstudio.microsoft.com/downloads/)
-  * [Unity Personal](https://store.unity.com/download?ref=personal)
+  * [Visual Studio Community](https://visualstudio.microsoft.com/downloads/)
 * Java:
-  * Java Development Kit (ez tartalmazza a fordítót, ezért kötelező):
-      * [Java JDK 8](https://www.oracle.com/technetwork/java/javase/overview/index.html) - iskolai gépeken használt, Netbeans 8 ennél újabbal nem működik
-      * VAGY: [OpenJDK 11](http://jdk.java.net/11/) - újabb, de az iskolai környezettel nem garantált a kompatibilitás
-  * [Netbeans](https://netbeans.org/)
-    * 8.2 - Csak JDK 8-cal működik
-    * 9 - Újabb, de az iskolai környezetben nincs garancia, hogy működik, lehet különbség a projekt formátumban stb.
+  * [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/download/)
 * Android:
   * [Android Studio](https://developer.android.com/studio/)
+* Minden egyéb (JavaScript, TypeScript, Python, PHP):
+  * [Visual Studio Code](https://code.visualstudio.com/)
+  * JavaScript / TypeScript fejlesztéshez szükséges:  
+    [Node.js LTS](https://nodejs.org/)
 
 ### Tervezéshez, dokumentáláshoz:
 

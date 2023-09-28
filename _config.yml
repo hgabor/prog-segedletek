@@ -17,8 +17,8 @@ title: Petrik segédletek
 #email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
   Segédletek különféle programozási, szoftverfejlesztési témakörökhöz.
-  Elsősorban a BMSZC Petrik 13-14 évfolyamos, szoftverfejlesztői tantervéhez készült,
-  de bárki szabadon felhasználhatja a CC-BY-NC 4.0 szerint (részletek az Infó oldalon).
+  Eredetileg a BMSZC Petrik 13-14 évfolyamos, OKJ-s szoftverfejlesztői tantervéhez készült
+  (ami azóta többször átalakult). Bárki szabadon felhasználhatja a CC-BY-NC 4.0 szerint (részletek az Infó oldalon).
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: jekyllrb

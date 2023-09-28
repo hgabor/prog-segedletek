@@ -3,3 +3,6 @@ _site
 .jekyll-metadata
 .jekyll-cache
 *~
+
+# Contains password:
+upload.sh
