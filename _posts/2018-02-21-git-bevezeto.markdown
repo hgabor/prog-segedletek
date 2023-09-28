@@ -146,7 +146,7 @@ nyissuk meg a mappát VS Code-ban (File / Open Folder...), és ezen a panelen ka
 * **branch**: Fejlesztői ág. Több okunk is lehet arra, hogy a fejlesztés párhuzamosan fusson:
   * Különböző funkciók párhuzamos fejlesztése
   * A szofter különböző verzióinak a karbantartása (pl. a Windows 11 kiadása miatt nem állt le a 10-es verzió fejlesztése)
-  * Kísérleti funkciók létrehozása, amelyek nem biztos, be bekerülnek a végleges verzióba
+  * Kísérleti funkciók létrehozása, amelyek nem biztos, hogy bekerülnek a végleges verzióba
   * stb.
 * **diff**: Két commit közötti különbség - mely fájlokban mely sorok hogyan térnek el egymástól.
 * **main** v. **master**: A projektünk alapértelmezett fejlesztői ága.
