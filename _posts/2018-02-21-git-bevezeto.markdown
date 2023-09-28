@@ -5,6 +5,8 @@ date:   2018-02-21 10:00:00 +0100
 tags: 14evfolyam verziokezeles
 ---
 
+*2023-09-28 frissítés: NetBeans-es részeket VS Code-ra cseréltem, a VS képeket frissítettem a 2022-es verzióra, néhány vizsgán előkerülő fogalmat hozzáadtam.*
+
 Egy verziókezelő rendszer az alábbi problémákat oldja meg:
 
 * Több fejlesztőnek kell egyszerre ugyanazon a projekten dolgozni
@@ -16,7 +18,7 @@ Egy verziókezelő rendszer az alábbi problémákat oldja meg:
 A **[git](https://git-scm.com/)** egy a sok verziókezelő rendszer közül, talán a legelterjedtebb. (Népszerű alternatívák még: mercurial, subversion)
 
 A git alapvetően konzolról vezérelt eszköz, de szinte minden grafikus fejlesztőkörnyezet
-(Visual Studio, Netbeans, Eclipse, IntelliJ, Andorid Studio) támogatja.
+(Visual Studio, VS Code, Netbeans, Eclipse, IntelliJ, Andorid Studio) támogatja.
 Van, amelyik beépítetten, van amelyikhez szükséges a konzolos változat telepítése.
 
 Ebben a leírásban elsősorban az általános fogalmakra, és a GUI-s felületekre koncentrálok.
@@ -103,53 +105,51 @@ Itt két példát szeretnék bemutatni, de a többi fejlesztőkörnyezet, ill. k
 
 ### Visual Studio
 
-Visual Studio-ban a verziókezelési műveleteket a *Team Explorer* panelen találhatjuk meg.
+Visual Studio-ban a verziókezelési műveleteket fent található "Git" menüben találhatjuk meg.
 
-![Repók közötti műveletek](/assets/img/git_vs_home.png)
+Alternatívaként, a git-hez kapcsolódó panelek a "View" menü alatt, "Git Changes" és "Git Repository" alatt találhatók meg.
 
-A *Manage Connections* ikonra kattintva (vagy a felső menüsávban a *Team/Manage Connection*-re)
-előjön az alábbi panel:
+![Git elérhetősége](/assets/img/git_vs_home.png)
 
-![Repók közötti műveletek](/assets/img/git_vs_connect.png)
-
-Itt tudunk létező repót klónozni, vagy már klónozott repókat kezelni.
-Ha innen választjuk ki a projektet a File/Open helyett, akkor ne felejtsük el
-a solution-t sem megnyitni!
-
-A Home panelről érhetjük még el az alábbiakat:
-
-* Changes
-  * Új commit létrehozása
-  * A repó történelmének (commitok) megtekintése
-* Branches
-  * Ágak kezelése (átváltás, létrehozás, törlés)
-* Sync
-  * Repók közötti műveletek: fetch, pull, push
-* Settings
-  * Git beállítások
+Itt tudunk létező repót klónozni, a projektünket verziókezelés alá helyezni, ill. a verziókezelési műveleteket végrehajtani.
 
 Ha az új projektünkhöz helyi repót szeretnénk létrehozni, klónozás nélkül,
-akkor azt az új projekt létrehozásakor kell kiválasztani:
+akkor a "Create Git Repository" opciót válasszuk ki:
 
-![Repók közötti műveletek](/assets/img/git_vs_init.png)
+![Új git repó](/assets/img/git_vs_init.png)
 
-Ha még nem használtuk a funkciót, a jelölőnégyzet felirata első alkalommal valószínűleg *Add to Source Control* lesz,
-ekkor ki kell választani, hogy git-tel szeretnénk dolgozni Team Foundation helyett.
+Itt eldönthetjük, hogy csak lokális repót szeretnénk, vagy össze szeretnénk kötni valamely népszerű git szolgáltatóval.
 
-### NetBeans
+Ha a projektünket sikeresen verziókezelés alá helyeztük, itt tudunk commit-okat létrehozni, ill. egyszerű push és pull műveleteket végrehajtani.
 
-Netbeans-ben a verziókezelési műveleteket két helyen érhetjük el:
+![Git lokális műveletek](/assets/img/git_vs_changes.png)
 
-* A menüsorban a *Team* menü alatt
-* A projektre jobb klikkel kattintva, a *git* menüpont alatt (ajánlott)
+A komplexebb, repók közötti műveletekhez pedig használhatjuk a "Git Repository" ablakot.
 
-![Repók közötti műveletek](/assets/img/git_netbeans_home.png)
+### Visual Studio Code
 
-Itt közvetlen elérhetők a leggyakoribb műveletek (commit, checkout, history).
-A távoli repóval kapcsolatos műveletek (fetch, push, pull) a *Remote* almenüben találhatók
+A git repókkal kapcsolatos minden művelet a bal oldali "Source Control" panelen található:
 
-A klónozás művelet is itt jelenik meg. Ha épp nincs nyitott projekt, akkor a Team menüből választhatjuk ki.
+![Repók közötti műveletek](/assets/img/git_vscode_home.png)
+
+A panelen elsősorban a commitolásra szolgál (itt válogathatjuk össze a módosásokat), a további a műveletek
+(fetch, push, pull) pedig a felső sorban, ill. a "..." legördülő menüben érhetők el.
+
+A klónozás művelet is itt jelenik meg, ha épp nincs nyitott projektünk.
 
 Ha az új projektünkhöz helyi repót szeretnénk létrehozni, klónozás nélkül,
-akkor először hozzuk létre a projektet a szokásos módon, majd válasszuk ki a jobb klikk menüből
-a *Versioning/Initialize Git Repository...* opciót.
+akkor először hozzuk létre a projektet a keretrendszernek megfelelő módon,
+nyissuk meg a mappát VS Code-ban (File / Open Folder...), és ezen a panelen kattintsunk az "Initialize Repository" gombra.
+
+## Egyéb hasznos git fogalmak
+
+* **branch**: Fejlesztői ág. Több okunk is lehet arra, hogy a fejlesztés párhuzamosan fusson:
+  * Különböző funkciók párhuzamos fejlesztése
+  * A szofter különböző verzióinak a karbantartása (pl. a Windows 11 kiadása miatt nem állt le a 10-es verzió fejlesztése)
+  * Kísérleti funkciók létrehozása, amelyek nem biztos, be bekerülnek a végleges verzióba
+  * stb.
+* **diff**: Két commit közötti különbség - mely fájlokban mely sorok hogyan térnek el egymástól.
+* **main** v. **master**: A projektünk alapértelmezett fejlesztői ága.
+* **origin**: Ha projektünkhöz tartozik távoli repó, ennek a távoli repónak az alapértelmezett megnevezése.
+* **log** v. **history**: A múltbeli commit-ok listája.
+* **staging area**: Amikor kiválogatjuk, hogy mit szeretnénk commit-olni, először egy képzeletbeli átmeneti helyre tesszük őket. Erre azért van szükség, mert könnyen előfordulhat, hogy nem minden változtatást szeretnénk egy commit-ba tenni, hanem 2-3 külön lépésben szeretnénk commit-olni.
