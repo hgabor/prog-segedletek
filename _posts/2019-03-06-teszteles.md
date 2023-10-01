@@ -109,7 +109,7 @@ A béta-tesztelés fogalma mára kezd kissé elmosódni, elég gyakori mindkét 
 
 ### Nem funkcionális tesztelés
 
-Azok a tesztek, amelyek nem a helyes / helyteenséget, hanem az egyéb paramétereket vizsgálják:
+Azok a tesztek, amelyek nem a helyes / helytelenséget, hanem az egyéb paramétereket vizsgálják:
 
 * Stressz-tesztelés: erőforrásigény mérése, extrém mennyiségű bemenet (pl. egyszerre sok felhasználó, nagy mennyiségű adat stb.) kezelése
 * Biztonsági tesztelés: hálózati, webes alkalmazások esetén kiemelkedően fontos

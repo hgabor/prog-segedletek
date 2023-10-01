@@ -33,7 +33,7 @@ ezekbe akkor érdemes beletanulni, ha már az alapvető munkamenetet biztonságg
   Igeként egy commit létrehozását is jelenti (commit-olni).
 * *Munkapéldány (working copy):* A fájlok, amelyekkel éppen dolgozunk. A munkapéldányt megváltoztatva tudunk commit-ot létrehozni.
 A munkapéldányt *tisztának* nevezzük, ha nincs benne nem commit-olt változtatás.
-* *Checkout:* Kiválasztjuk, hogy a repóból melyik committal szeretnénk dolgozni, és ezt lesz az új munkapéldányunk.
+* *Checkout:* Kiválasztjuk, hogy a repóból melyik committal szeretnénk dolgozni, és ez lesz az új munkapéldányunk.
 
 ![Repó és munkapéldány közti műveletek](/assets/img/repo-wc.png)
 
