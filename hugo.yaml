@@ -1,0 +1,25 @@
+baseURL: 'https://example.org/'
+languageCode: 'hu'
+title: 'Petrik Segédletek'
+theme: 'PaperMod'
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+
+menu:
+  main:
+    - identifier: diak
+      name: Diákoknak
+      url: /diak
+      weight: 10
+    - identifier: info
+      name: Infó
+      url: /info
+      weight: 20
+    - identifier: szoftver
+      name: Szoftverek
+      url: /szoftver
+      weight: 30
