@@ -1,8 +1,8 @@
 ---
-#layout: post
 title: "Git bevezető"
-date: 2018-02-21T10:00:00+01:00
-#tags: 14evfolyam verziokezeles
+date: 2018-02-21 10:00:00 +01:00
+tags:
+ - verziokezeles
 ---
 
 *2023-09-28 frissítés: NetBeans-es részeket VS Code-ra cseréltem, a VS képeket frissítettem a 2022-es verzióra, néhány vizsgán előkerülő fogalmat hozzáadtam.*
