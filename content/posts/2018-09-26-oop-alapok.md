@@ -12,7 +12,8 @@ Az objektum-orientált szemlélet célja, hogy a logikailag egybe tartozó adato
 
 Definiálás:
 
-<pre><code class="csharp">class Animal
+{{< highlight csharp >}}
+class Animal
 {
     string name;
     int hungerLevel;
@@ -23,7 +24,7 @@ Definiálás:
 
     int GetHungerLevel() { return hungerLevel; }
 }
-</code></pre>
+{{< /highlight >}}
 
 Használat:
 

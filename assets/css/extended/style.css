@@ -1,0 +1,8 @@
+pre>code:before {
+    content: "Nyelv: " attr(data-lang-human);
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+    color: rgb(105, 242, 105);
+    padding-left: 10px;
+}

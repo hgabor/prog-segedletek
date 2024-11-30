@@ -7,6 +7,8 @@ markup:
   goldmark:
     renderer:
       unsafe: true
+  highlight:
+    noClasses: false
 
 
 menu:
@@ -23,3 +25,4 @@ menu:
       name: Szoftverek
       url: /szoftver
       weight: 30
+

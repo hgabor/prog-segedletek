@@ -1,0 +1,21 @@
+<script>
+
+  (function(){
+    let translate = {
+      'csharp': 'C#',
+      'java': 'Java',
+      'php': 'PHP',
+      'javascript': 'JavaScript',
+      'typescript': 'TypeScript',
+      'sql': 'SQL',
+      'html': 'HTML',
+      'bash': 'Bash',
+    };
+
+    let a = document.getElementsByTagName("code");
+    for (let i = 0; i < a.length; i++) {
+      let elem = a[i];
+      elem.setAttribute("data-lang-human", translate[elem.getAttribute("data-lang")]);
+    }
+  })();
+</script>
