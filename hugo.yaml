@@ -1,7 +1,11 @@
-baseURL: 'https://example.org/'
-languageCode: 'hu'
+baseURL: 'https://segedletek.level14.hu/'
+languageCode: 'hu-HU'
+defaultContentLanguage: 'hu'
 title: 'Petrik Segédletek'
 theme: 'PaperMod'
+
+params:
+  dateFormat: "2006. January 02."
 
 markup:
   goldmark:
