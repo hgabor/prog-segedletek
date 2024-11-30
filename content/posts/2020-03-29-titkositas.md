@@ -182,8 +182,9 @@ A két leggyakrabban használt algoritmus. A böngészőben, a lakat ikonra katt
 
 Saját kulcspárt generálhatunk pl. OpenSSH segítségével. Ha szeretnénk egy 4096 bites, RSA kulcsot:
 
-<pre><code class="bash">ssh-keygen -t rsa -b 4096
-</code></pre>
+{{< highlight bash >}}
+ssh-keygen -t rsa -b 4096
+{{< /highlight >}}
 
 Ha alapértelmezett fájlnéven hagyjuk, akkor két fájlt generál a "~/.ssh" mappában:
 
@@ -235,19 +236,21 @@ Ugyanaz a jelszó, de a hash különbözik.
 
 Regisztrációkor:
 
-<pre><code class="php">// Hash kiszámítása, ezt fogjuk az adatbázisba tenni
+{{< highlight php >}}
+// Hash kiszámítása, ezt fogjuk az adatbázisba tenni
 $db_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
-</code></pre>
+{{< /highlight >}}
 
 Bejelentkezéskor:
-<pre><code class="php">$db_hash = ... // Ezt olvassuk ki az adatbázisból
+{{< highlight php >}}
+$db_hash = ... // Ezt olvassuk ki az adatbázisból
 if (password_verify($_POST['password'], $db_hash)) {
     // Sikeres login
     $_SESSION['user_id'] = $user_id;
 } else {
     $error_message = 'Sikertelen login';
 }
-</code></pre>
+{{< /highlight >}}
 
 Javasolt kriptográfiai hash algoritmusok:
 

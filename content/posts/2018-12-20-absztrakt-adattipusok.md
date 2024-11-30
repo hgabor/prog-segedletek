@@ -121,7 +121,8 @@ Programkódban természetesen nem csak a fenti pár művelet van definiálva, pl
 
 ### C#
 
-<pre><code class="csharp">var stack = new Stack&lt;int>();
+{{< highlight csharp >}}
+var stack = new Stack&lt;int>();
 stack.Push(5);
 stack.Push(10);
 stack.Push(-1);
@@ -161,13 +162,14 @@ d.Add("Petike", -8.7);
 Console.WriteLine(d.ContainsKey("Csőrike"));  // hamis
 Console.WriteLine(d["Petike"]);               // -8.7
 Console.WriteLine(d["Csőrike"]);              // KeyNotFoundException
-</code></pre>
+{{< /highlight >}}
 
 ## Java
 
 Java-ban a verem és sor adatszerkezeteket az ArrayDeque osztályon keresztül használhatjuk.
 
-<pre><code class="java">Deque&lt;Integer> stack = new ArrayDeque&lt;>();
+{{< highlight java >}}
+Deque&lt;Integer> stack = new ArrayDeque&lt;>();
 // A végére rekjuk az elemet
 stack.addLast(5);
 stack.addLast(10);
@@ -206,7 +208,7 @@ d.put("Petike", -8.7);
 System.out.println(d.containsKey("Csőrike"));  // hamis
 System.out.println(d.get("Petike"));           // -8.7
 System.out.println(d.get("Csőrike"));          // null
-</code></pre>
+{{< /highlight >}}
 
 ### PHP
 
@@ -214,7 +216,8 @@ A PHP csak korlátozottan taralmaz dedikált adatszerkezeteket, amelyekkel a mű
 
 A tömbhöz azonban rengeteg segédfüggvény jár, amivel a verem/sor megoldható:
 
-<pre><code class="php">$stack = [];
+{{< highlight php >}}
+$stack = [];
 $stack[] = 5;  // push művelet
 $stack[] = 10;
 $stack[] = -1;
@@ -227,22 +230,24 @@ $queue[] = 10;
 $queue[] = -1;
 print( array_shift($queue) ); // 5  - az elejéről veszi le, azaz dequeue
 print( array_shift($queue) ); // 10
-</code></pre>
+{{< /highlight >}}
 
 A PHP-s prioritási sor "fordítva" működik, először a legnagyobb értéket veszi ki.
 Itt is meg lehet adni különböző prioritást az elemhez képest:
 
-<pre><code class="php">$pq = new SplPriorityQueue();
+{{< highlight php >}}
+$pq = new SplPriorityQueue();
 $pq->insert(5, 5);
 $pq->insert(10, 10);
 $pq->insert(-1, -1);
 print( $pq->extract() ); // 10 (legnagyobb)
 print( $pq->extract() ); // 5
-</code></pre>
+{{< /highlight >}}
 
 Ha az elemeink, kulcsaink egész vagy string típusúak, akkor a tömbből akár halmaz és szótár is lehet.
 
-<pre><code class="php">$set = [];
+{{< highlight php >}}
+$set = [];
 $set[5] = true;            // Hozzáadás a halmazhoz
 $set[1] = true;
 $set[11] = true;
@@ -259,6 +264,6 @@ print( isset($dict["Csőrike"]) );  // hamis
 print( $dict["Petike"] );          // -8.7
 print( $dict["Csőrike"] );         // Notice: Undefined index: Csőrike
 unset($dict["Petike"]);            // Törlés
-</code></pre>
+{{< /highlight >}}
 
 Mivel egy tömb kulcsa csak egész szám vagy szöveg lehet, ez a módszer más típusokra nem működik. Ha halmaz elem, vagy a szótár kulcsa objektum, használhatjuk még az [SplObjectStorage](http://php.net/manual/en/class.splobjectstorage.php) osztályt.

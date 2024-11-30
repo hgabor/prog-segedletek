@@ -11,7 +11,8 @@ Akkor is hasznos, ha a kódunkat kisebb, logikai részekre szeretnénk bontani.
 Van azonban egy fontos haszna még: a keretrendszer által generált különféle események (pl. egy gombra kattintás) kezelésére.
 Ebben az esetben általában csak egy helyen használnánk a függényt: az eseményre feliratkozáskor. Pl.:
 
-<pre><code class="csharp">public class Form1: Form
+{{< highlight csharp >}}
+public class Form1: Form
 {
     Button btn = new Button();
 
@@ -29,7 +30,7 @@ Ebben az esetben általában csak egy helyen használnánk a függényt: az esem
         MessageBox.Show("Kattintottal");
     }
 }
-</code></pre>
+{{< /highlight >}}
 
 A példában a btn_Clicked függvény csak azért szerepel, hogy a kattintás eseményre reagálhassunk. Nem fogjuk máskor meghívni, többször felhasználni,
 de mégis fel kellett vennünk egy külön függvényt. Vagy mégsem?
@@ -40,14 +41,16 @@ A névtelen (anonymous) függvény, vagy **lambda függvény** egy olyan függv�
 
 A fenti példával ekvivalens lambda függvény:
 
-<pre><code class="csharp">(sender, e) => {
+{{< highlight csharp >}}
+(sender, e) => {
     MessageBox.Show("Kattintottal");
 }
-</code></pre>
+{{< /highlight >}}
 
 A teljes kód pedig:
 
-<pre><code class="csharp">public class Form1: Form
+{{< highlight csharp >}}
+public class Form1: Form
 {
     Button btn = new Button();
 
@@ -60,40 +63,45 @@ A teljes kód pedig:
         };
     }
 }
-</code></pre>
+{{< /highlight >}}
 
 Ha nincs paraméter, akkor üres zárójeleket írunk. Megadhatunk visszatérési értéket is:
 
-<pre><code class="csharp">() => {
+{{< highlight csharp >}}
+() => {
     Console.WriteLine("Esemeny");
     return 2;
 }
-</code></pre>
+{{< /highlight >}}
 
 ## Más programozási nyelveken
 
 ### JavaScript
 
-<pre><code class="html">&lt;button id=&apos;gomb&apos;&gt;Katt&lt;/button&gt;
-</code></pre>
+{{< highlight html >}}
+<button id='gomb'>Katt</button>
+{{< /highlight >}}
 
-<pre><code class="javascript">let button = document.getElementById('gomb');
+{{< highlight javascript >}}
+let button = document.getElementById('gomb');
 button.addEventListener('click', () => { window.alert('Kattintottal'); });
-</code></pre>
+{{< /highlight >}}
 
 Régebbi, kompatibilis szintaxissal:
 
-<pre><code class="javascript">let button = document.getElementById('gomb');
+{{< highlight javascript >}}
+let button = document.getElementById('gomb');
 button.addEventListener('click', function() {
     window.alert('Kattintottal');
 });
-</code></pre>
+{{< /highlight >}}
 
 ### Java
 
 Ugyanaz, mint C#-ban vagy JavaScript-ben, de a dupla => nyíl helyett -> szimpla nyilat használunk.
 
-<pre><code class="java">public class NewJFrame extends javax.swing.JFrame {
+{{< highlight java >}}
+public class NewJFrame extends javax.swing.JFrame {
     public NewJFrame() {
         initComponents();
 
@@ -101,7 +109,7 @@ Ugyanaz, mint C#-ban vagy JavaScript-ben, de a dupla => nyíl helyett -> szimpla
             JOptionPane.showMessageDialog(this, "Kattintottal");
         });
     }
-</code></pre>
+{{< /highlight >}}
 
 ## A lambda függvények egyéb felhasználási területei (példák):
 
@@ -109,7 +117,8 @@ Ugyanaz, mint C#-ban vagy JavaScript-ben, de a dupla => nyíl helyett -> szimpla
 
 Rendezzük ABC szerint csökkenő sorrendbe az alábbi osztály objektumait:
 
-<pre><code class="csharp">class Szemely
+{{< highlight csharp >}}
+class Szemely
 {
     public string Nev { get; private set; }
     public DateTime SzulDat { get; private set; }
@@ -120,11 +129,12 @@ Rendezzük ABC szerint csökkenő sorrendbe az alábbi osztály objektumait:
         this.SzulDat = szulDat;
     }
 }
-</code></pre>
+{{< /highlight >}}
 
 A rendezés:
 
-<pre><code class="csharp">var list = new List&lt;Szemely>();
+{{< highlight csharp >}}
+var list = new List&lt;Szemely>();
 list.Add(new Szemely("Kovacs Bela", new DateTime(2000, 1, 1)));
 list.Add(new Szemely("Molnar Julianna", new DateTime(1970, 10, 10)));
 list.Add(new Szemely("Telapo", new DateTime(1600, 12, 6)));
@@ -145,18 +155,19 @@ list.Sort((sz1, sz2) => {
         return 0;
     }
 });
-</code></pre>
+{{< /highlight >}}
 
 Ugyanez tömörebben:
 
-<pre><code class="csharp">var list = new List&lt;Szemely>();
+{{< highlight csharp >}}
+var list = new List&lt;Szemely>();
 list.Add(new Szemely("Kovacs Bela", new DateTime(2000, 1, 1)));
 list.Add(new Szemely("Molnar Julianna", new DateTime(1970, 10, 10)));
 list.Add(new Szemely("Telapo", new DateTime(1600, 12, 6)));
 
 // A negatív előjel miatt fordított sorrendű lesz a rendezés
 list.Sort((sz1, sz2) => -(sz1.Nev.CompareTo(sz2.Nev)));
-</code></pre>
+{{< /highlight >}}
 
 A tömör példában, ha nem írunk kapcsos zárójeleket, akkor csak egy kifejezést lehet megadni, amit automatikusan visszatérési értékként használ fel.
 
@@ -164,12 +175,13 @@ A tömör példában, ha nem írunk kapcsos zárójeleket, akkor csak egy kifeje
 
 Válogassuk ki a tömb nemnegatív elemeit:
 
-<pre><code class="php">$t = [4, -6, 234, -78.88, -9, 0];
+{{< highlight php >}}
+$t = [4, -6, 234, -78.88, -9, 0];
 
 // Az array_filter paramétere az egy elem kiválasztását eldöntő függvény
 $kivalogatott = array_filter($t, function($elem) {
     return $elem >= 0;
 });
-</code></pre>
+{{< /highlight >}}
 
 A legtöbb programozási tételre létezik beépített függvény, a kiválogatási, összehasonlítási feltételeket pedig (lambda vagy hagyományos) függvényként lehet átadni.

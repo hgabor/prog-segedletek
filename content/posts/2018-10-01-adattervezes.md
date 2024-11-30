@@ -88,7 +88,8 @@ Bár alkalomszerűen lesz kivétel, általánosságban igaz, hogy:
 
 A fenti példából pl. az alábbi adatbázist írhatjuk le:
 
-<pre><code class="sql">CREATE TABLE jarat (
+{{< highlight sql >}}
+CREATE TABLE jarat (
     id INTEGER PRIMARY KEY AUTO_INCREMENT,
     jaratszam VARCHAR(100) UNIQUE,
     kapacitas INTEGER NOT NULL
@@ -107,7 +108,7 @@ CREATE TABLE erinti (
     PRIMARY KEY (jarat_id, allomas_id),
     FOREIGN KEY (jarat_id) REFERENCES jarat(id),
     FOREIGN KEY (allomas_id) REFERENCES allomas(id)
-);</code></pre>
+);{{< /highlight >}}
 
 Vizuálisan:
 
@@ -140,7 +141,8 @@ Hasonlóan az adatbázishoz, itt is lesz pár irányelv, ami kiindulási alapot 
 
 #### Ha szükség van az "idő"-re
 
-<pre><code class="csharp">class Jarat {
+{{< highlight csharp >}}
+class Jarat {
     string jaratszam;
     int kapacitas;
     // Egy járat több állomást is érint:
@@ -164,11 +166,12 @@ class Erinti {
 // Felhasználás (generált getterek segítségével):
 Console.WriteLine(jarat.Erinti[5].Ido);
 Console.WriteLine(jarat.Erinti[5].Allomas.Nev);
-</code></pre>
+{{< /highlight >}}
 
 #### Ha az "idő"-re nincs szükség
 
-<pre><code class="csharp">class Jarat {
+{{< highlight csharp >}}
+class Jarat {
     string jaratszam;
     int kapacitas;
     // Egy járat több állomást is érint:
@@ -184,7 +187,7 @@ class Allomas {
 
 // Felhasználás (generált getterek segítségével):
 Console.WriteLine(jarat.Allomasok[5].Nev);
-</code></pre>
+{{< /highlight >}}
 
 Az "int id" adatbázismezőket is célszerű lehet még felvenni az osztályokba, amennyiben az osztályok adatai az adatbázisból származnak, és módosítás után oda kerülnek visszaírásra.
 

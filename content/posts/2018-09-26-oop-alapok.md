@@ -28,11 +28,12 @@ class Animal
 
 Használat:
 
-<pre><code class="csharp">Animal hawk = new Animal("Hawk");
+{{< highlight csharp >}}
+Animal hawk = new Animal("Hawk");
 Animal mouse = new Animal("Mouse");
 h.Eat(mouse);
 h.hungerLevel -= 10;
-</code></pre>
+{{< /highlight >}}
 
 Az osztály egy *összetett adattípus*, ami azt jelenti, hogy több, más adattípusból áll össze. A fenti példában az *Animal* osztály egy névből és egy éhségszintből áll.
 
@@ -40,13 +41,14 @@ Az *Animal* ugyanúgy egy típus, mint az *int*, *bool* és a *string* - az egye
 
 Figyeljük meg a hasonlóságot:
 
-<pre><code class="csharp">// Tipus valtozo = ertek
+{{< highlight csharp >}}
+// Tipus valtozo = ertek
 int characterCount = 5;
 bool fileOpened = file.IsOpen;
 double array = { 5, 7.8, -78 };
 Animal hawk = new Animal("Mouse");
 List&lt;string> list = new List&lt;string>();
-</code></pre>
+{{< /highlight >}}
 
 Ez azt jelenti, hogy pl. az Eat() függvényt, vagy a hungerLevel változót egy konkrét állat nélkül nem is lehet használni.
 
@@ -60,21 +62,24 @@ Elnevezések, szakszavak:
 
 A tagváltozókat és a metódusokat a programozási nyelvek döntő többségében a . (pont) művelettel érhetjük el:
 
-<pre><code class="csharp">t.Length;
+{{< highlight csharp >}}
+t.Length;
 date.Year;
 file.ReadLine();
 "Hello".ToUpper();
-</code></pre>
+{{< /highlight >}}
 
 PHP nyelven azonban a . már foglalt a string összefűzésre, ezért a C-ből kölcsönzött nyilat használjuk:
 
-<pre><code class="php">$obj->setData(4);
+{{< highlight php >}}
+$obj->setData(4);
 $obj->data = 5; // A tagváltozó elé nem kell még egyszer dollárjel!
-</code></pre>
+{{< /highlight >}}
 
 ## Metódusok és a this
 
-<pre><code class="csharp">class Person
+{{< highlight csharp >}}
+class Person
 {
     string name;
     DateTime birthDate;
@@ -84,25 +89,27 @@ $obj->data = 5; // A tagváltozó elé nem kell még egyszer dollárjel!
         return DateTime.Now.Year - this.birthDate.Year;
     }
 }
-</code></pre>
+{{< /highlight >}}
 
 A hagyományos függvényekhez képest a metódusok elérhetik az aktuális objektumok tagváltozóit és más metódusait. Ehhez a speciálisan elnevezett **this** (PHP-ban **$this**) változót használhatjuk.
 
 A this kulcsszó Java-ban és C#-ban elhagyható, ha egyértelmű, hogy a tagváltozóra hivatkozunk:
 
-<pre><code class="csharp">    int CalculateAge()
+{{< highlight csharp >}}
+    int CalculateAge()
     {
         return DateTime.Now.Year - birthDate.Year;
     }
-</code></pre>
+{{< /highlight >}}
 
 Ha van ugyanolyan nevű lokális változónk vagy paraméterünk, akkor azonban ki kell írni:
 
-<pre><code class="csharp">    void SetBirthDate(DateTime birthDate)
+{{< highlight csharp >}}
+    void SetBirthDate(DateTime birthDate)
     {
         this.birthDate = birthDate;
     }
-</code></pre>
+{{< /highlight >}}
 
 PHP-ban és JavaScript-ben mindig ki kell írni, nem lehet elhagyni.
 
@@ -113,7 +120,8 @@ Az objektumok használatának egy nagy előnye, hogy a létrehozáskor meg lehet
 
 Ehhez egy konstruktort kell definiálnunk:
 
-<pre><code class="csharp">class Animal
+{{< highlight csharp >}}
+class Animal
 {
     string owner;
     int legCount;
@@ -124,7 +132,7 @@ Ehhez egy konstruktort kell definiálnunk:
         this.legCount = legCount;
     }
 }
-</code></pre>
+{{< /highlight >}}
 
 C#-ban / Java-ban a konstruktor neve az osztály neve és nincs megadva visszatérési érték. Ez nem minden programnyelvben van így! (l. példákat lentebb)
 
@@ -133,9 +141,10 @@ C#-ban / Java-ban a konstruktor neve az osztály neve és nincs megadva visszat�
 
 A fenti példában van egy potenciális hibaforrás. A kód nem akadályozza meg azt, hogy a változókba ne kerüljön érvénytelen érték:
 
-<pre><code class="csharp">var a = new Animal("John Smith", 4);
+{{< highlight csharp >}}
+var a = new Animal("John Smith", 4);
 a.legCount = -3;
-</code></pre>
+{{< /highlight >}}
 
 A -3 érték jöhet felhasználótól, vagy hibás programkódból - mindenesetre az biztos, hogy valahogy szeretnénk megakadályozni a hiba létrejöttét.
 
@@ -145,7 +154,8 @@ A két legfontosabb láthatóság:
 * **public**: publikus, bárhonnan elérhető
 * **private**: privát, csak az osztályon belül érhető el
 
-<pre><code class="csharp">class Animal
+{{< highlight csharp >}}
+class Animal
 {
     private string name;
 
@@ -167,11 +177,12 @@ class Program
         a.WriteName();
     }
 }
-</code></pre>
+{{< /highlight >}}
 
 ## Példák osztály definiálására
 
-<pre><code class="csharp">class Animal
+{{< highlight csharp >}}
+class Animal
 {
     string owner;
     int legCount;
@@ -189,11 +200,12 @@ class Program
         }
     }
 }
-</code></pre>
+{{< /highlight >}}
 
 C#-ban az alapértelmezett láthatóság a private, ezért nem szokás kiírni.
 
-<pre><code class="java">class Animal {
+{{< highlight java >}}
+class Animal {
     private String owner;
     private int legCount;
 
@@ -208,11 +220,12 @@ C#-ban az alapértelmezett láthatóság a private, ezért nem szokás kiírni.
         }
     }
 }
-</code></pre>
+{{< /highlight >}}
 
 Java-ban a default érték teljesen mást jelent, ezért a private-et mindig kiírjuk.
 
-<pre><code class="php">class Animal
+{{< highlight php >}}
+class Animal
 {
     private $owner;
     private $legCount;
@@ -230,11 +243,12 @@ Java-ban a default érték teljesen mást jelent, ezért a private-et mindig ki�
         }
     }
 }
-</code></pre>
+{{< /highlight >}}
 
 PHP-ban mindent ki kell írni. A konstruktor neve mindig *__construct*, az osztály nevétől függetlenül.
 
-<pre><code class="javascript">class Animal {
+{{< highlight javascript >}}
+class Animal {
     constructor(owner, legCount) {
         this.owner = owner;
         this.legCount = legCount;
@@ -246,7 +260,7 @@ PHP-ban mindent ki kell írni. A konstruktor neve mindig *__construct*, az oszt�
         }
     }
 }
-</code></pre>
+{{< /highlight >}}
 
 JavaScript-ben nem létezik láthatóság, minden publikus. A privát tagokat lehet jelölni kezdeti aláhúzással (pl. `this._owner = owner`), de ez csak konvenció, a környezet nem jelez hibát, ha megszegjük.
 
@@ -258,8 +272,9 @@ A konstruktor neve mindig *constructor*, az osztály nevétől függetlenül.
 
 A létrehozás mind a négy esetben, mind a négy programnyelven:
 
-<pre><code class="csharp">new Animal("Mary Sue", 6);
-</code></pre>
+{{< highlight csharp >}}
+new Animal("Mary Sue", 6);
+{{< /highlight >}}
 
 ### Ábrázolás
 
@@ -281,7 +296,8 @@ Java és PHP nyelven ezt segédfüggvények segítségével oldhatjuk meg.
 
 Java példa:
 
-<pre><code class="java">class Animal {
+{{< highlight java >}}
+class Animal {
     private String owner;
     private int legCount;
 
@@ -295,13 +311,14 @@ Java példa:
         }
     }
 }
-</code></pre>
+{{< /highlight >}}
 
 Ha módosítani szeretnénk, pl. 1-gyel csökkenteni a tagváltozót, akkor azt így tehetjük meg.
 
-<pre><code class="java">Animal bird = new Animal();
+{{< highlight java >}}
+Animal bird = new Animal();
 bird.setLegCount(bird.getLegCount() - 1);
-</code></pre>
+{{< /highlight >}}
 
 A kód aránylag nem szép, de Java-ban és PHP-ban ez az egyetlen lehetőségünk.
 
@@ -309,7 +326,8 @@ C# és JavaScript azonban bevezetett egy új fogalmat, a **property**-t, ami leh
 
 C# példa:
 
-<pre><code class="csharp">class Animal
+{{< highlight csharp >}}
+class Animal
 {
     string owner;
     int legCount;
@@ -335,23 +353,25 @@ C# példa:
         }
     }
 }
-</code></pre>
+{{< /highlight >}}
 
 Nem kötetelező mindkettőt definiálni. Ha csak a get-et adjuk meg, akkor a property csak olvasható lesz, ha csak set-et, akkor csak írható.
 
 Használat:
 
-<pre><code class="csharp">Animal centipede = new Animal();
+{{< highlight csharp >}}
+Animal centipede = new Animal();
 centipede.LegCount = 100;
 centipede.LegCount--;
 Console.WriteLine(centipede.Owner);
 // Ez a sor hibás, mert nincs setter:
 centipede.Owner = "John";
-</code></pre>
+{{< /highlight >}}
 
 JavaScript példa:
 
-<pre><code class="javascript">class Animal {
+{{< highlight javascript >}}
+class Animal {
     constructor() {
         this._owner = "Default owner";
         this._legCount = 0;
@@ -377,7 +397,7 @@ let centipede = new Animal();
 centipede.legCount = 100;
 centipede.legCount--;
 console.log(centipede.owner);
-</code></pre>
+{{< /highlight >}}
 
 Mindkét nyelven, az Owner/owner és a LegCount/legCount használat közben úgy tűnik, mintha változó lenne, mégis függvényeket hív meg a háttérben. Ezáltal olvashatóbb kódot tudunk készíteni:
 
@@ -393,7 +413,8 @@ Véletlen programhibák, elgépelések, számítási hibák ellen.
 
 Ha szeretnénk, könnyedén ki lehet játszani a private által nyújtott védelmet:
 
-<pre><code class="java">import java.lang.reflect.Field;
+{{< highlight java >}}
+import java.lang.reflect.Field;
 
 class TestClass {
     // Privát, az osztály nem módosítja, így örökké 2 lesz, ugye?
@@ -420,7 +441,7 @@ public class CircumventVisibility {
         obj.print(); // -3 -at ír ki. Upsz...
     }
 }
-</code></pre>
+{{< /highlight >}}
 
 Viszont ilyen kódot véletlenül nem fogunk írni. Ha mégis használjuk, magunkkal szúrunk ki.
 

@@ -17,7 +17,8 @@ Informálisan egy modul, egy komponens, egy osztály interfészének azt nevezz�
 
 Ha egy osztály interfésze megváltozik, akkor nagy valószínűleg az azt használó programkódot is módosítani kell. Vegyük az osztályt, és az azt használó kódot:
 
-<pre><code class="csharp">// Osztály:
+{{< highlight csharp >}}
+// Osztály:
 class Kutya {
     public void Ugat()
     {
@@ -28,27 +29,30 @@ class Kutya {
 // Az osztályt meghívó kód:
 var k = new Kutya();
 k.Ugat();
-</code></pre>
+{{< /highlight >}}
 
 Ha az Ugat() metódust módosítjuk:
 
-<pre><code class="csharp">class Kutya {
+{{< highlight csharp >}}
+class Kutya {
     public void Ugat(string postasNeve)
     {
         Console.WriteLine("Vau vau " + postasNeve);
     }
 }
-</code></pre>
+{{< /highlight >}}
 
 Akkor a hívó kód érvényetelen lesz, ezért azt is módosítani kell:
 
-<pre><code class="csharp">var k = new Kutya();
+{{< highlight csharp >}}
+var k = new Kutya();
 k.Ugat("Jozsi");
-</code></pre>
+{{< /highlight >}}
 
 Ezzel szemben állnak a privát tagok, illetve a publikus függvények kódja - egy szóval a _privát implementáció_. Ha ezen módosítunk, attól még az azt meghívó kódon nem biztos, hogy módosítani kell.
 
-<pre><code class="csharp">class Kutya {
+{{< highlight csharp >}}
+class Kutya {
     public void Ugat()
     {
         // A módosított kód
@@ -59,7 +63,7 @@ Ezzel szemben állnak a privát tagok, illetve a publikus függvények kódja - 
 // Az osztályt meghívó kódot nem kell átírni
 var k = new Kutya();
 k.Ugat();
-</code></pre>
+{{< /highlight >}}
 
 Épp ezért fontos, hogy milyen függvényeket, változókat nevezünk ki publikusnak. Amint egy függvény része az osztály interfészének, az utólagos módosítás sokkal nehezebbé, költségesebbé válhat.
 
@@ -67,11 +71,12 @@ k.Ugat();
 
 Sok OOP nyelvben szerepel az interfész, mint nyelvi elem. Ebben az értelemben az interfész nem más, mint egy függvényekből álló lista, amely azt sorolja fel, hogy egy adott osztálynak milyen függvényeket kell megvalósítania.
 
-<pre><code class="csharp">interface IAllat {
+{{< highlight csharp >}}
+interface IAllat {
     void HangotAd();
     void Eszik(string etel);
 }
-</code></pre>
+{{< /highlight >}}
 
 Az interfész csak egy leírás, nem egy konkrét dolog, ezért nem lehet belőle példányt létrehozni. Nincs olyan, hogy "Állat", van "Macska", "Kutya", "Papagáj", de az "Állat" az csak egy gyűjtőfogalom.
 
@@ -81,16 +86,18 @@ Ez azt jelenti, hogy interfészből nem lehet példányt létrehozni, a "new All
 
 Vegyük az alábbi interfészt:
 
-<pre><code class="csharp">interface IKolcsonozheto
+{{< highlight csharp >}}
+interface IKolcsonozheto
 {
     string MegjelenitendoNev();
     int MeddigKolcsonozheto();
 }
-</code></pre>
+{{< /highlight >}}
 
 Az implementálás azt jelenti, hogy megmondjuk az adott osztálynak, hogy az interfész függvényeit meg kell valósítani:
 
-<pre><code class="csharp">class Konyv: IKolcsonozheto
+{{< highlight csharp >}}
+class Konyv: IKolcsonozheto
 {
     string cim;
     string szerzo;
@@ -113,11 +120,12 @@ Az implementálás azt jelenti, hogy megmondjuk az adott osztálynak, hogy az in
         return 14;
     }
 }
-</code></pre>
+{{< /highlight >}}
 
 Ha az interfészben szereplő függvények nem szerepelnek az osztályban, akkor a kód érvénytelen:
 
-<pre><code class="csharp">class Ujsag: IKolcsonozheto
+{{< highlight csharp >}}
+class Ujsag: IKolcsonozheto
 {
     string cim;
     int kiadasEv;
@@ -139,11 +147,12 @@ Ha az interfészben szereplő függvények nem szerepelnek az osztályban, akkor
 
     // Hibás, a MeddigKolcsonozheto függvény nem szerepel
 }
-</code></pre>
+{{< /highlight >}}
 
 Helyesen:
 
-<pre><code class="csharp">class Ujsag: IKolcsonozheto
+{{< highlight csharp >}}
+class Ujsag: IKolcsonozheto
 {
     string cim;
     int kiadasEv;
@@ -167,7 +176,7 @@ Helyesen:
         return 0;
     }
 }
-</code></pre>
+{{< /highlight >}}
 
 ## Az interfészek célja
 
@@ -175,13 +184,15 @@ Helyesen:
 
 Az interfészek segítségével tudjuk, hogy a különböző osztályokon szerepelnek ugyanazok a függvények. Így bár IKolcsonozheto példányt nem hozhatunk létre, változóként felvehetjük:
 
-<pre><code class="csharp">IKolcsonozheto k = new Ujsag("Dormogo Domotor", 1995, 5);
+{{< highlight csharp >}}
+IKolcsonozheto k = new Ujsag("Dormogo Domotor", 1995, 5);
 Console.WriteLine(k.MegjelenitendoNev());
-</code></pre>
+{{< /highlight >}}
 
 Vagy egy vegyes listát, ún. _heterogén listát_ is létrehozhatunk:
 1
-<pre><code class="csharp">var katalogus = new List&lt;IKolcsonozheto>();
+{{< highlight csharp >}}
+var katalogus = new List&lt;IKolcsonozheto>();
 katalogus.Add(new Ujsag("Dormogo Domotor", 1995, 5));
 katalogus.Add(new Konyv("Harry Potter", "J. K. Rowling", "1234567891"));
 katalogus.Add(new Ujsag("Kiskegyed", 2018, 11));
@@ -190,7 +201,7 @@ foreach(var e in katalogus)
 {
     Console.WriteLine(e.MegjelenitendoNev());
 }
-</code></pre>
+{{< /highlight >}}
 
 Mindegyik objektum tudja magáról, hogy kell a megjelenítendő nevét kiszámolni, így mind a könyveknek, mind az újságoknak megmarad az egyedisége, mégis tudjuk őket közösen, egy for ciklusban kezelni.
 
@@ -202,7 +213,8 @@ Ha olyan kódot készítünk, ami interfészeken dolgozik konkrét osztályok he
 
 Erre a leglátványosabb példa az [IComparable](https://docs.microsoft.com/en-us/dotnet/api/system.icomparable-1) interfész, amely a CompareTo metódust követeli meg:
 
-<pre><code class="csharp">class Dvd: IComparable&lt;Dvd>
+{{< highlight csharp >}}
+class Dvd: IComparable&lt;Dvd>
 {
     string cim;
     int hossz; // perc
@@ -232,16 +244,17 @@ Erre a leglátványosabb példa az [IComparable](https://docs.microsoft.com/en-u
         }
     }
 }
-</code></pre>
+{{< /highlight >}}
 
 Ezt implementálva egy DVD-kből alló listát rendezhetünk a beépített rendező függvényyel:
 
-<pre><code class="csharp">var dvdk = new List&lt;Dvd>();
+{{< highlight csharp >}}
+var dvdk = new List&lt;Dvd>();
 dvdk.Add(new Dvd("Star Wars IV", 210));
 dvdk.Add(new Dvd("Star Wars V", 180));
 dvdk.Add(new Dvd("Star Wars VI", 200));
 dvdk.Sort(); // Rendezés hossz szerint
-</code></pre>
+{{< /highlight >}}
 
 A List.Sort() függvény készítőinek fogalma sem volt arról, hogy valaha DVD-ket fogunk hossz szerint rendezni, minket pedig nem érdekel, hogy a Sort függvény hogyan van implementálva. Mégis, a két rendszer gond nélkül működik egymással, az interfész segítségével.
 
@@ -249,13 +262,14 @@ A List.Sort() függvény készítőinek fogalma sem volt arról, hogy valaha DVD
 
 C#-ban a fentiekben láttunk példát interfész definiálására és implementálására. Mivel a property-k is valójában függvények, implementáció nélkül gettereket és settereket is felvehetünk.
 
-<pre><code class="csharp">interface IAllat
+{{< highlight csharp >}}
+interface IAllat
 {
     void HangotAd();
     void Eszik(string etel);
     string Nev { get; set; }
 }
-</code></pre>
+{{< /highlight >}}
 
 C#-ban az interfészeket nagy I betűvel szokás kezdeni.
 
@@ -263,45 +277,50 @@ C#-ban az interfészeket nagy I betűvel szokás kezdeni.
 
 A kód nagyon hasonló:
 
-<pre><code class="java">interface Allat {
+{{< highlight java >}}
+interface Allat {
     void hangotAd();
     void eszik(String etel);
     String getNev();
     void setNev(String ujNev);
 }
-</code></pre>
+{{< /highlight >}}
 
 Implementálás:
 
-<pre><code class="java">class Papagaj implements Allat {
+{{< highlight java >}}
+class Papagaj implements Allat {
     public void hangotAd() { /* ... */ }
     public void eszik(String etel) { /* ... */ }
     public String getNev() { /* ... */ }
     public void setNev(String ujNev) { /* ... */ }
 }
-</code></pre>
+{{< /highlight >}}
 
 ### PHP
 
-<pre><code class="php">interface Allat {
+{{< highlight php >}}
+interface Allat {
     function hangotAd();
     function eszik(string $etel);
     function getNev() : string;
     function setNev(string $ujNev);
 }
-</code></pre>
+{{< /highlight >}}
 
-<pre><code class="php">class Papagaj implements Allat {
+{{< highlight php >}}
+class Papagaj implements Allat {
     public function hangotAd() { /* ... */ }
     public function eszik(string $etel) { /* ... */ }
     public function getNev() : string { /* ... */ }
     public function setNev(string $ujNev) { /* ... */ }
 }
-</code></pre>
+{{< /highlight >}}
 
 Mivel a PHP-ben a változóknak nincsen típusa (csak az értékeknek), interfészek nélkül sem gond pl. egy ilyen tömb létrehozása:
 
-<pre><code class="php">$katalogus = [
+{{< highlight php >}}
+$katalogus = [
     new DVD("Star Wars"),
     new Konyv("A Gyűrűk Ura"),
 ];
@@ -310,7 +329,7 @@ foreach($katalogus as $e) {
     // amíg ez a függvény létezik minden osztályon:
     print($e->getMegjelenitendoNev());
 }
-</code></pre>
+{{< /highlight >}}
 
 A cél itt főleg a hibaellenőrzés és a dokumentálás
 
