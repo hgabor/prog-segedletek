@@ -122,32 +122,29 @@ Programkódban természetesen nem csak a fenti pár művelet van definiálva, pl
 ### C#
 
 {{< highlight csharp >}}
-var stack = new Stack&lt;int>();
+var stack = new Stack<int>();
 stack.Push(5);
 stack.Push(10);
 stack.Push(-1);
 Console.WriteLine(stack.Pop()); // -1
 Console.WriteLine(stack.Pop()); // 10
 
-var queue = new Queue&lt;int>();
+var queue = new Queue<int>();
 queue.Enqueue(5);
 queue.Enqueue(10);
 queue.Enqueue(-1);
 Console.WriteLine(queue.Dequeue()); // 5
 Console.WriteLine(queue.Dequeue()); // 10
 
-// .NET-ben nincs beépített prioritási sor osztály,
-// de az alábbi NuGet csomag segít:
-// https://www.nuget.org/packages/OptimizedPriorityQueue/
 // Az értéknek nem kell megegyeznie a prioritással!
-var pq = new SimplePriorityQueue&lt;int, int>();
+var pq = new PriorityQueue<int, int>();
 pq.Enqueue(5, 5);
 pq.Enqueue(10, 10);
 pq.Enqueue(-1, -1);
+Console.WriteLine(pq.Dequeue()); // -1
 Console.WriteLine(pq.Dequeue()); // 5
-Console.WriteLine(pq.Dequeue()); // 10
 
-var s = new HashSet&lt;int>();
+var s = new HashSet<int>();
 s.Add(5);
 s.Add(1);
 s.Add(11);
@@ -156,7 +153,7 @@ Console.WriteLine(s.Count);         // 3
 Console.WriteLine(s.Contains(2));   // false
 Console.WriteLine(s.Contains(5));   // true
 
-var d = new Dictionary&lt;string, double>();
+var d = new Dictionary<string, double>();
 d.Add("Gyurika", 5.6);
 d.Add("Petike", -8.7);
 Console.WriteLine(d.ContainsKey("Csőrike"));  // hamis
@@ -169,7 +166,7 @@ Console.WriteLine(d["Csőrike"]);              // KeyNotFoundException
 Java-ban a verem és sor adatszerkezeteket az ArrayDeque osztályon keresztül használhatjuk.
 
 {{< highlight java >}}
-Deque&lt;Integer> stack = new ArrayDeque&lt;>();
+Deque<Integer> stack = new ArrayDeque<>();
 // A végére rekjuk az elemet
 stack.addLast(5);
 stack.addLast(10);
@@ -179,21 +176,21 @@ System.out.println(stack.removeLast()); // -1
 System.out.println(stack.removeLast()); // 10
 
 // Ugyanaz az osztály, de a Queue interface-en keresztül használjuk
-Queue&lt;Integer> queue = new ArrayDeque&lt;>();
+Queue<Integer> queue = new ArrayDeque<>();
 queue.add(5);
 queue.add(10);
 queue.add(-1);
 System.out.println(queue.remove()); // 5
 System.out.println(queue.remove()); // 10
 
-Queue&lt;Integer> pq = new PriorityQueue&lt;>();
+Queue<Integer> pq = new PriorityQueue<>();
 pq.add(5);
 pq.add(10);
 pq.add(-1);
 System.out.println(pq.remove()); // 5
 System.out.println(pq.remove()); // 10
 
-Set&lt;Integer> s = new HashSet&lt;>();
+Set<Integer> s = new HashSet<>();
 s.add(5);
 s.add(1);
 s.add(11);
@@ -202,7 +199,7 @@ System.out.println(s.size());        // 3
 System.out.println(s.contains(2));   // false
 System.out.println(s.contains(5));   // true
 
-Map&lt;String, Double> d = new HashMap&lt;>();
+Map<String, Double> d = new HashMap<>();
 d.put("Gyurika", 5.6);
 d.put("Petike", -8.7);
 System.out.println(d.containsKey("Csőrike"));  // hamis

@@ -47,7 +47,7 @@ int characterCount = 5;
 bool fileOpened = file.IsOpen;
 double array = { 5, 7.8, -78 };
 Animal hawk = new Animal("Mouse");
-List&lt;string> list = new List&lt;string>();
+List<string> list = new List<string>();
 {{< /highlight >}}
 
 Ez azt jelenti, hogy pl. az Eat() függvényt, vagy a hungerLevel változót egy konkrét állat nélkül nem is lehet használni.

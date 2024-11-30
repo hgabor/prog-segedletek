@@ -134,7 +134,7 @@ class Szemely
 A rendezés:
 
 {{< highlight csharp >}}
-var list = new List&lt;Szemely>();
+var list = new List<Szemely>();
 list.Add(new Szemely("Kovacs Bela", new DateTime(2000, 1, 1)));
 list.Add(new Szemely("Molnar Julianna", new DateTime(1970, 10, 10)));
 list.Add(new Szemely("Telapo", new DateTime(1600, 12, 6)));
@@ -160,7 +160,7 @@ list.Sort((sz1, sz2) => {
 Ugyanez tömörebben:
 
 {{< highlight csharp >}}
-var list = new List&lt;Szemely>();
+var list = new List<Szemely>();
 list.Add(new Szemely("Kovacs Bela", new DateTime(2000, 1, 1)));
 list.Add(new Szemely("Molnar Julianna", new DateTime(1970, 10, 10)));
 list.Add(new Szemely("Telapo", new DateTime(1600, 12, 6)));

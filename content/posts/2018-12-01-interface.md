@@ -192,7 +192,7 @@ Console.WriteLine(k.MegjelenitendoNev());
 Vagy egy vegyes listát, ún. _heterogén listát_ is létrehozhatunk:
 1
 {{< highlight csharp >}}
-var katalogus = new List&lt;IKolcsonozheto>();
+var katalogus = new List<IKolcsonozheto>();
 katalogus.Add(new Ujsag("Dormogo Domotor", 1995, 5));
 katalogus.Add(new Konyv("Harry Potter", "J. K. Rowling", "1234567891"));
 katalogus.Add(new Ujsag("Kiskegyed", 2018, 11));
@@ -214,7 +214,7 @@ Ha olyan kódot készítünk, ami interfészeken dolgozik konkrét osztályok he
 Erre a leglátványosabb példa az [IComparable](https://docs.microsoft.com/en-us/dotnet/api/system.icomparable-1) interfész, amely a CompareTo metódust követeli meg:
 
 {{< highlight csharp >}}
-class Dvd: IComparable&lt;Dvd>
+class Dvd: IComparable<Dvd>
 {
     string cim;
     int hossz; // perc
@@ -249,7 +249,7 @@ class Dvd: IComparable&lt;Dvd>
 Ezt implementálva egy DVD-kből alló listát rendezhetünk a beépített rendező függvényyel:
 
 {{< highlight csharp >}}
-var dvdk = new List&lt;Dvd>();
+var dvdk = new List<Dvd>();
 dvdk.Add(new Dvd("Star Wars IV", 210));
 dvdk.Add(new Dvd("Star Wars V", 180));
 dvdk.Add(new Dvd("Star Wars VI", 200));

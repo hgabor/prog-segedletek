@@ -146,14 +146,14 @@ class Jarat {
     string jaratszam;
     int kapacitas;
     // Egy járat több állomást is érint:
-    List&lt;Erinti> erinti;
+    List<Erinti> erinti;
 }
 
 class Allomas {
     string nev;
     bool jegypenztar;
     // Egy állomást több járat is érint:
-    List&lt;Erinti> erinti;
+    List<Erinti> erinti;
 }
 
 class Erinti {
@@ -175,14 +175,14 @@ class Jarat {
     string jaratszam;
     int kapacitas;
     // Egy járat több állomást is érint:
-    List&lt;Allomas> allomasok;
+    List<Allomas> allomasok;
 }
 
 class Allomas {
     string nev;
     bool jegypenztar;
     // Egy állomást több járat is érint:
-    List&lt;Jarat> jaratok;
+    List<Jarat> jaratok;
 }
 
 // Felhasználás (generált getterek segítségével):
