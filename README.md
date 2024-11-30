@@ -17,3 +17,11 @@ Ezt a "piaci rést" próbáltam részben lefedni ezzel a kis jegyzetgyűjteménn
 Ha bármi hibát találsz, nyugodtan nyiss egy issue-t, igyekszem miharabb javítani.
 
 A tartalom felhasználható a [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) szerint.
+
+
+## Használt szoftverek
+
+[Hugo site generator](https://gohugo.io/)
+
+[PaperMod theme](https://github.com/adityatelange/hugo-PaperMod)
+
