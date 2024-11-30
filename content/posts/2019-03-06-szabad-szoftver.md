@@ -72,4 +72,4 @@ Szabad szoftver azonban nem minden esetben alkalmazható:
 
 A nyílt forráskód és a szoftverminőség nem függ össze közvetlenül. Rengeteg jó és gyenge minőségű nyílt és zárt szoftver is létezik.
 
-(Egy pont, amiben _általában__ a fizetős szoftverek előbbre járnak, az a User Interface design)
+(Egy pont, amiben _általában_ a fizetős szoftverek előbbre járnak, az a User Interface design)
