@@ -199,7 +199,7 @@ Bizonyos szituációkban nem fontos, hogy a titkosítás visszafordítható legy
 
 Azokat az algoritmusokat, amik erre alkalmasak, **kriptográfiai hash** függvényeknek nevezzük.
 
-[Emlékeztetőül, a hash függvény:]({% post_url 2018-12-01-hash %})
+[Emlékeztetőül, a hash függvény:]({{< ref "posts/2018-12-01-hash" >}})
 
 * Egyirányú, a hash-ből nem lehet visszaszerezni az eredeti adatot
 * Fix intervallumra vetíti le az eredeti adatot, így nem derül ki, hogy az eredeti 1 bájt vagy 1 gigagbájt volt: a bcrypt eredménye mindig 184 bites lesz.

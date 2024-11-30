@@ -22,7 +22,7 @@ A választásom azért a git-re esett, mert az eddigi tapasztalatom alapján min
 
 Első körben tisztában kell lennünk a verziókezelő rendszer működésével. Amit érdemes átolvasni:
 
-* [Git bevezető, összefoglaló segédlet]({% post_url 2018-02-21-git-bevezeto %})
+* [Git bevezető, összefoglaló segédlet]({{< ref "posts/2018-02-21-git-bevezeto" >}})
 * [Kicsit hosszabb/részletesebb, angol nyelvű leírás](https://try.github.io/)
 
 Ha már már más verziókezelőt (pl. SVN) ismerünk:

@@ -42,7 +42,7 @@ A korábbi példák mind egyszerű gráfok, az alábbi viszont nem:
 
 ![Nem egyszeru gráf](/assets/img/graf-nemegyszeru.svg)
 
-Egy gráf pedig **fa**, ha összefüggő, és nincs benne kör - azaz ha egy pontból elindulunk, nem lehet visszajutni anélkül, hogy élen kétszer átmennénk. Érdemes összevetni az [adatszerkezeteknél tanult definícióval]({% post_url 2018-12-02-fa %}) - a kettő végeredményben ugyanazt jelenti, de a megközelítés, a felhasználás módja különbözik. E legelső példa az nem fa, mert tartalmazza az "1-2-3" pontokból álló kört.
+Egy gráf pedig **fa**, ha összefüggő, és nincs benne kör - azaz ha egy pontból elindulunk, nem lehet visszajutni anélkül, hogy élen kétszer átmennénk. Érdemes összevetni az [adatszerkezeteknél tanult definícióval]({{< ref "posts/2018-12-02-fa" >}}) - a kettő végeredményben ugyanazt jelenti, de a megközelítés, a felhasználás módja különbözik. E legelső példa az nem fa, mert tartalmazza az "1-2-3" pontokból álló kört.
 
 Sok más hasznos tulajdonságot is elmondhatunk a gráfokról, itt csak a legfontosabbakat szedtem össze. [Egy teljesebb körű fogalomtár megtalálható itt.](https://hu.wikipedia.org/wiki/Gr%C3%A1felm%C3%A9leti_fogalomt%C3%A1r)
 

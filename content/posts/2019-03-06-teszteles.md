@@ -63,7 +63,7 @@ Egyetlen osztályt, függvényt tesztelünk, a programtól izoláltan.
 * Fehérdoboz
   * Lehet kombinálni code coverage eszközökkel lehet fehérdoboz is, pl. a siker feltétele, hogy a tesztesetek 100%-os lefedetséget produkáljanak
 
-[Egységtesztelés a gyakorlatban, NUnit segítségével]({% post_url 2019-03-02-nunit %})
+[Egységtesztelés a gyakorlatban, NUnit segítségével]({{< ref "posts/2019-03-02-nunit" >}})
 
 ### Integrációs tesztelés
 
@@ -148,5 +148,5 @@ Jegyzőkönyvet készíthetünk ad-hoc teszteléshez is, ebben az esetben a jegy
 
 Ez csak egy ízelítő a tesztelés témaköréből. Rengeteg teszmódszer létezik, és bármely említett elemet még ki lehetne fejteni részletesebben.
 
-* [Egységtesztelés NUnit segítségével]({% post_url 2019-03-02-nunit %})
+* [Egységtesztelés NUnit segítségével]({{< ref "posts/2019-03-02-nunit" >}})
 * [Wikipedia: Software testing](https://en.wikipedia.org/wiki/Software_testing)
