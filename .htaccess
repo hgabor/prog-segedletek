@@ -1,0 +1,5 @@
+ErrorDocument 404 /404.html
+
+# Site migration
+RedirectMatch 301 ^/feed.xml$ /index.xml
+RedirectMatch 301 ^/(\d{4})/(\d{2})/(\d{2})/(.+)\.html$ /posts/$1-$2-$3-$4
