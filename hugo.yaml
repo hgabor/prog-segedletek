@@ -3,9 +3,16 @@ languageCode: 'hu-HU'
 defaultContentLanguage: 'hu'
 title: 'Petrik Segédletek'
 theme: 'PaperMod'
+copyright: '<a href="https://github.com/hgabor" class="github-logo">GitHub-on elérhető vagyok</a>'
 
 params:
   dateFormat: "2006. January 02."
+  description: "Segédletek különféle programozási, szoftverfejlesztési témakörökhöz."
+  footer:
+    text: >-
+      Segédletek különféle programozási, szoftverfejlesztési témakörökhöz.<br>
+      Felhasználható a CC-BY-NC 4.0 szerint (részletek az Infó oldalon).
+  author: Halász Gábor
 
 markup:
   goldmark:
