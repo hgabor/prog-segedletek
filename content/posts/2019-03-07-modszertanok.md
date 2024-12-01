@@ -27,7 +27,7 @@ A naiv elgondolás, hogy ez a módszer a logikus, hiszen hogyan is lehetne elkez
 
 A módszer legnagyobb problémája, hogy arra a feltételezésre épül, hogy az összes megelőző lépés helyes, hibátlan volt. A gyakorlatban azonban sokszor fordul elő, hogy a fejlesztés során találunk tervezési hibákat, sőt, akár specifikációbeli változásokat is. Visszatérni egy előző fázisba viszont azt jelenti, hogy az addig elvégzett munkát ki kell dobni.
 
-Épp ezért, tisztán vízesés jelleggel csak nagyon kevés szoftvert fejlesztenek, főleg olyan területeken, ahol termék elkészülte után nincs lehetőség, vagy nagyon költséges a frissítés. Pl. egy műhold vezérlőszoftverét nem lehet iteratív módon fejleszteni, elsőre jól kell működnie - ez viszont azt is magával vonzza, hogy a specifikációs és a tervezési fázis _sokkal_ több ideig tart és sokkal költségesebb, mint egy átlagos szoftverprojektté.
+Épp ezért, tisztán vízesés jelleggel csak nagyon kevés szoftvert fejlesztenek, főleg olyan területeken, ahol termék elkészülte után nincs lehetőség, vagy nagyon költséges a frissítés. Pl. egy műhold vezérlőszoftverét nem lehet iteratív módon fejleszteni, elsőre jól kell működnie - ez viszont azt is magával vonzza, hogy a specifikációs és a tervezési fázis _sokkal_ több ideig tart és sokkal költségesebb, mint egy átlagos szoftverprojekté.
 
 ## Iteratív
 

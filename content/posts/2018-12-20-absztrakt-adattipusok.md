@@ -23,8 +23,8 @@ Itt most az utóbbiból mutatok be néhányat.
 
 A verem két műveletet definiál:
 
-* push -> beleteszegy elemet
-* pop -> kiveszi azt az elemet, amelyet _legutóljára_ tettünk bele.
+* push → beletesz egy elemet
+* pop → kiveszi azt az elemet, amelyet _legutóljára_ tettünk bele.
 
 Az alábbi módon tudjuk elképzelni:
 
@@ -44,16 +44,16 @@ Kiír(v.pop())          // [5]           Ki: 10
 
 A sor szintén két műveletet definiál:
 
-* enqueue -> beleteszegy elemet
-* dequeue -> kiveszi azt az elemet, amelyet _legelőször_ tettünk bele.
+* enqueue → beletesz egy elemet
+* dequeue → kiveszi azt az elemet, amelyet _legelőször_ tettünk bele.
 
 <pre>
 s = új üres Sor()         // []
 s.enqueue(5)              // [5]
 s.enqueue(10)             // [5, 10]
 s.enqueue(-1)             // [5, 10, -1]
-Kiír(s.dequeue())         // [10, -1]       Ki:  5
-Kiír(s.dequeue())         // [-1]           Ki: 10
+Kiír(s.dequeue())         //    [10, -1]    Ki:  5
+Kiír(s.dequeue())         //        [-1]    Ki: 10
 </pre>
 
 ## Prioritási sor
@@ -187,8 +187,8 @@ Queue<Integer> pq = new PriorityQueue<>();
 pq.add(5);
 pq.add(10);
 pq.add(-1);
+System.out.println(pq.remove()); // -1
 System.out.println(pq.remove()); // 5
-System.out.println(pq.remove()); // 10
 
 Set<Integer> s = new HashSet<>();
 s.add(5);

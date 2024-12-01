@@ -22,3 +22,8 @@ footer a.github-logo::before {
 .dark a.github-logo::before {
     background-image: url(/assets/img/github-mark-white.png);
 }
+
+.post-content img {
+    background-color: white;
+    margin: auto;
+}

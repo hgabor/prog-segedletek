@@ -51,7 +51,7 @@ Képek, hanganyagok, dokumentáció esetében nem mindig értelmezhető a "forr�
 
 * Több szem többet lát hatás: ha a fejlesztőn, cégen kívül mások is belenézhetnek a forráskódba, akkor a hibákat könnyebben lehet megtalálni és javítani
   * Új funkciókat nem csak az eredeti fejlesztő készíthet
-  * [Egy 2018-as rangsor szerint](https://www.infoworld.com/article/3253948/who-really-contributes-to-open-source.html#tk.twt_ifw) github-on a Microsoft alkalmazottai adtak a legtöbbet nyílt forrású projektekhez.
+  * [Egy 2018-as rangsor szerint](http://web.archive.org/web/20220818010628/https://www.infoworld.com/article/3253948/who-really-contributes-to-open-source.html) github-on a Microsoft alkalmazottai adtak a legtöbbet nyílt forrású projektekhez.
 * A legtöbb esetben ingyenes, vagyis magáncélra történő felhasználásra, kipróbálásra nem kell hatalmas összeget befektetni
   * A Windows Server-nek 180 napos a próbaverziója, utána meg kell venni
   * Unity esetében csak bizonyos bevétel/cégméret alatt ingyenes

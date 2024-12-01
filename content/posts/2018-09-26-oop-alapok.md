@@ -249,22 +249,26 @@ PHP-ban mindent ki kell írni. A konstruktor neve mindig *__construct*, az oszt�
 
 {{< highlight javascript >}}
 class Animal {
+    #owner;
+    #legCount;
+
     constructor(owner, legCount) {
-        this.owner = owner;
-        this.legCount = legCount;
+        this.#owner = owner;
+        this.#legCount = legCount;
+        this.publicVar = 14;
     }
 
     setLegCount(legCount) {
         if (legCount >= 0) {
-            this.legCount = legCount;
+            this.#legCount = legCount;
         }
     }
 }
 {{< /highlight >}}
 
-JavaScript-ben nem létezik láthatóság, minden publikus. A privát tagokat lehet jelölni kezdeti aláhúzással (pl. `this._owner = owner`), de ez csak konvenció, a környezet nem jelez hibát, ha megszegjük.
+JavaScript-ben a privát változók jelölésére a # előtagot használjuk - ez része lesz a változónévnek.
 
-Adattagokat nem kell külön kiírni, a konstruktorban definiáljuk őket értékadással.
+Publikus adattagokat nem kell külön kiírni, elég a konstruktorban definiálni őket értékadással, viszont a privát tagot a fenti módon deklarálni kell.
 
 A konstruktor neve mindig *constructor*, az osztály nevétől függetlenül.
 
@@ -372,24 +376,27 @@ JavaScript példa:
 
 {{< highlight javascript >}}
 class Animal {
+    #owner;
+    #legCount;
+
     constructor() {
-        this._owner = "Default owner";
-        this._legCount = 0;
+        this.#owner = "Default owner";
+        this.#legCount = 0;
     }
 
     // Mintha függvény lenne, csak a get/set kulcsszót elé írjuk
     get legCount() {
-        return this._legCount;
+        return this.#legCount;
     }
 
     set legCount(legCount) {
         if (legCount >= 0) {
-            this._legCount = legCount;
+            this.#legCount = #legCount;
         }
     }
 
     get owner() {
-        return this._owner;
+        return this.#owner;
     }
 }
 

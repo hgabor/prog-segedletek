@@ -77,7 +77,7 @@ De lehet személyre szabott is:
 * Pl. Megrendelésre készült szoftver esetén
 * Több szabad szoftvernek van zárt forrású változata is, ahol a szabad változat ingyenes, a nem nyílt változat fizetős
 
-A szabad szoftvereket részletesebben egy külön bejegyzés alatt tárgyalom. (TODO)
+A szabad szoftvereket részletesebben [egy külön bejegyzésben tárgyalom]({{< ref "posts/2019-03-06-szabad-szoftver" >}}).
 
 ## Védjegy (trademark)
 
@@ -111,7 +111,7 @@ Ami számunkra fontos, a szoftver, önmagában nem szabadalmaztatható, mert a p
 Ha mégis sikerült egy személynek / cégnek szoftvert szabadalmaztatni, az az esetek többségében az USÁ-ban történik, és mint az egyik legnagyobb piac, nem mehetünk el mellette. A szoftverszabadalmak oka kettős:
 
 * Az USÁ-ban találmányok mellett ún. _üzleti jellegű eljárás_-t is lehet szabadalmaztatni, amelyet sokan használnak a tisztán szoftveres szabadalmak "elbújtatására"
-* A szabadalmi hivatal nem feltétlen tudja megállapítani, hogy mi számít újnak, és mi nyilvánvalónak, így sok érvénytelen szabadalom keletkezik, amelyeket csak hosszas bírósági útan lehet csak érvényteleníteni
+* A szabadalmi hivatal nem feltétlen tudja megállapítani, hogy mi számít újnak, és mi nyilvánvalónak, így sok érvénytelen szabadalom keletkezik, amelyeket csak hosszas bírósági úton lehet csak érvényteleníteni
 
 Ezért ha itthon nem is, amerikában tevékenykedő cégek esetében a szoftvert is érdemes megpróbálni szabadalmaztatni.
 
